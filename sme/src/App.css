@@ -1,0 +1,14 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+.tbody1>:nth-child(1){
+  color:greenyellow; 
+  font-weight: bold;
+ }
+

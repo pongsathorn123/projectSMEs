@@ -1,0 +1,60 @@
+@import 'https://fonts.googleapis.com/css?family=Mitr';
+body {
+  background: linear-gradient(to right, rgba(255, 255, 255, 0.856));  
+  background-color: rgba(255, 255, 255, 0.507);
+
+}
+div{
+  font-family: 'Kanit', sans-serif;
+}
+head {
+  font-size: 2.5em;
+  color: black;
+}
+text {
+  font-size: 1.2em;
+  color: black;
+}
+texts {
+  font-size: 0.8em;
+  color: rgb(255, 0, 0);
+}
+usntxt {
+  font-size: 1.2em;
+  color: rgb(167, 159, 159);
+}
+Nav.Link {
+  font-size: 1.5em;
+  color: rgb(167, 159, 159);
+}
+Nav.Link2 {
+  font-size: 1.5em;
+  color: rgb(60, 72, 236);
+}
+h1 {
+  font-size: 1.9em;
+  color: black;
+}
+h2 {
+  font-size: 1.7em;
+  color: black;
+}
+h4 {
+  font-size: 1.7em;
+  color: black;
+}
+
+option {
+height: 11px;
+}
+.card {
+box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.219);
+}
+.cardNva {
+  box-shadow: 10px 10px 5px rgba(177, 175, 175, 0.281);
+  }
+
+input {
+  width: 100%;
+  height: 80px
+}
