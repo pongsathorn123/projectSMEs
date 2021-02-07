@@ -1,5 +1,6 @@
 import UserLogin from './userLogin';
 import UserRegister from './userRegister';
+import createProject from './createProject';
 
 const routesApp = [
   
@@ -14,6 +15,12 @@ const routesApp = [
     name: "userRegister",
     exact: true,
     component: UserRegister
+  },
+  {
+    path: "/createProject",
+    name: "createProject",
+    exact: true,
+    component: createProject
   }
 ];
 
