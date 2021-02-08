@@ -18,7 +18,7 @@ export class loginStore {
       let user_id;
       const data = response.data;
       const type = response.data.type;
-      //console.log(response.status);
+      console.log(response.data.type);
       if (data.check !== 1) {
         console.log(data.check);
         user_id = 0;
@@ -31,11 +31,10 @@ export class loginStore {
           this.message = "บัญชีรอรับการยืนยัน";
         }
         else {
-          this.userid = user_id;
-          cookies.set("user_id", user_id, { path: "/", maxAge: 86400 });
+
           cookies.set("name", data.name, { path: "/", maxAge: 86400 });
           cookies.set("type", data.type, { path: "/", maxAge: 86400 });
-          window.location.href = "/create";
+          window.location.href = "/home";
           this.message = "";
         }
       }

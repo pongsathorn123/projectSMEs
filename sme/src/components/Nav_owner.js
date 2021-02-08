@@ -26,8 +26,7 @@ render(){
                         </Nav>
                         <Nav>
                         <Nav className="mr-auto" style={{ marginTop: 5 }}></Nav>
-                            <img src={user} height="25" width="25"/>
-                            <usntxt style={{marginLeft: 8}}>{cookies.get("name")}</usntxt >
+                            <usntxt style={{marginLeft: 8, marginTop: 5}}>{cookies.get("name")}</usntxt >
                             <Nav.Link href="/" onClick={this.logout.bind(this)}>Logout</Nav.Link>
                         </Nav>
                     </Navbar.Collapse>

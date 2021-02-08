@@ -1,4 +1,5 @@
 import UserLogin from './userLogin';
+import Home from './Home';
 import UserRegister from './userRegister';
 import createProject from './createProject';
 
@@ -9,6 +10,12 @@ const routesApp = [
     name: "login",
     exact: true,
     component: UserLogin
+  },
+  {
+    path: "/home",
+    name: "home",
+    exact: true,
+    component: Home
   },
   {
     path: "/userRegister",
