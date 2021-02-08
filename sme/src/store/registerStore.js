@@ -6,19 +6,21 @@ export class registerStore {
   constructor(rootStore) {
     this.rootStore = rootStore;
   }
-
+  
   username = "";
   password = "";
   repassword = "";
   name = "";
   email = "";
-  tell = "";
+  tel = "";
+  citizen_id = "";
   address = "";
+  user_type = "";
   message = "";
 
   async register() {
     try {
-      if (this.username == "" || this.password == "" || this.repassword == "" || this.name == "" || this.email == "" ) {
+      if (this.username == "" || this.password == "" || this.repassword == "" || this.name == "" || this.email == "" || this.tel == "" || this.citizen_id == "" ) {
         this.message = "กรุณากรอกข้อมูลให้ครบ";
         this.props.registerStore.username = "";
         this.props.registerStore.password = "";
@@ -32,7 +34,7 @@ export class registerStore {
           this.props.registerStore.repassword = "";
         } 
         else {
-          const response = await instance.get(`/user/userRegister/check/${this.username}`);
+          const response = await instance.get(`/user/register/check/${this.username}`);
           const data = response.data;
           if (data.length == 1) {
             this.message = "มีบัญชีผู้ใช้นี้แล้ว";
@@ -41,7 +43,7 @@ export class registerStore {
             this.props.registerStore.repassword = "";
           }
           else {
-            const response2 = await instance.get(`/user/userRegister/insert/${this.username}/${this.password}/${this.name}/${this.email}?person_id=${this.person_id}`);
+            const response2 = await instance.get(`/user/register/insert/${this.username}/${this.password}/${this.name}/${this.email}/${this.tel}/${this.address}/${this.citizen_id}/${this.user_type}`);
             window.location.href = "/";
             this.message = "";
           }
@@ -55,12 +57,14 @@ export class registerStore {
 }
 
 decorate(registerStore, {
+  selectedUsertype: observable,
   username: observable,
   password: observable,
   repassword: observable,
   name: observable,
   email: observable,
-  tell: observable,
+  citizen_id: observable,
+  tel: observable,
   address: observable,
   message: observable,
   register: action,

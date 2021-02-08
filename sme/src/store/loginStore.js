@@ -14,9 +14,7 @@ export class loginStore {
 
   async login() {
     try {
-      const response = await instance.get(
-        `/user/login/${this.username}/${this.password}`
-      );
+      const response = await instance.get(`/user/login/${this.username}/${this.password}`);
       let user_id;
       const data = response.data;
       const type = response.data.type;
@@ -24,7 +22,7 @@ export class loginStore {
       if (data.check !== 1) {
         console.log(data.check);
         user_id = 0;
-        this.message = "ไม่พบ";
+        this.message = "ไม่พบบัญชีผู้ใช้";
       } 
       else {
         console.log(data.check);

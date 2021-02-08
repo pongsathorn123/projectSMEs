@@ -4,6 +4,8 @@ import './Setpage.css';
 import { Container, Col, Row, Card, Form, } from 'react-bootstrap'
 import { ButtonToggle } from 'reactstrap'
 import { observer, inject } from "mobx-react";
+import Nav_notlogin from './components/Nav_notlogin';
+import registerStore from './store/registerStore';
 
 class userRegister extends Component {
   
@@ -27,11 +29,17 @@ class userRegister extends Component {
     this.props.registerStore.email = e.target.value;
   }
 
-  tellChange(e) {
-    this.props.registerStore.tell = e.target.value;
+  telChange(e) {
+    this.props.registerStore.tel = e.target.value;
   }
   addressChange(e) {
     this.props.registerStore.address = e.target.value;
+  }
+  citizen_idChange(e) {
+    this.props.registerStore.citizen_id = e.target.value;
+  }
+  selectedUsertype(e) {
+    this.props.registerStore.user_type = e.target.value;
   }
 
   async btnClick() {
@@ -45,6 +53,18 @@ class userRegister extends Component {
           <Card class="card" style={{ borderRadius: 12 }}>
             <Card.Header as="h3" className="text-center">สมัครสมาชิก</Card.Header>
             <Card.Body><center>
+              <Row>
+                <Col xs="12" md="3" sm="3">
+                    <Form.Label style={{ marginTop: 15 }}>เลือกประเภทสมาชิก</Form.Label>
+                </Col>
+                <Col>
+                  <Form.Control  style={{ marginTop: 10, borderRadius: 12, height:40  }}as="select" size="md" custom onChange={this.selectedUsertype.bind(this)}>
+                                        <option value="" disabled selected>ประเภทสมาชิก</option>
+                                        <option value="owner">เจ้าของธุรกิจ</option>
+                                        <option value="inves">นักลงทุน</option>
+                  </Form.Control>
+                </Col>
+              </Row>
               <Row>
                 <Col xs="12" md="3" sm="3">
                   <Form.Label style={{ marginTop: 15 }}>ชื่อบัญชีผู้ใช้</Form.Label>
@@ -107,14 +127,26 @@ class userRegister extends Component {
               </Row>
               <Row>
                 <Col xs="12" md="3" sm="3">
+                  <Form.Label style={{ marginTop: 15 }}>เลขบัตรประชาชน</Form.Label>
+                </Col>
+                <Col xs="12" md="9" sm="9">
+                  <Form.Control type="text" name="citizen_id" ref='citizen_id' maxlength="13"
+                    placeholder="   เลขบัตรประชาชน" 
+                    style={{ marginTop: 10, borderRadius: 12, height:40  }} 
+                    onChange={this.citizen_idChange.bind(this)} 
+                    value={this.props.registerStore.citizen_id} />
+                </Col>
+              </Row>
+              <Row>
+                <Col xs="12" md="3" sm="3">
                   <Form.Label style={{ marginTop: 15 }}>เบอร์โทรศัพท์</Form.Label>
                 </Col>
                 <Col xs="12" md="9" sm="9">
-                  <Form.Control type="text" name="tell" ref='tell' maxlength="10"
+                  <Form.Control type="text" name="tel" ref='tel' maxlength="10"
                     placeholder="   เบอร์โทรศัพท์" 
                     style={{ marginTop: 10, borderRadius: 12, height:40  }} 
-                    onChange={this.tellChange.bind(this)} 
-                    value={this.props.registerStore.tell} />
+                    onChange={this.telChange.bind(this)} 
+                    value={this.props.registerStore.tel} />
                 </Col>
               </Row>
               <Row>

@@ -57,10 +57,10 @@ class userLogin extends Component {
                 </Col>
                 <Col>
                   <center>
-                    <br/><Form.Label style={{color: "red"}}>{this.props.loginStore.message}</Form.Label>
-                    <ButtonToggle color="primary" size="sm" style={{ marginTop: 10 }} 
+                    <br/><Form.Label style={{color: "red"}}>{this.props.loginStore.message}</Form.Label><br/>
+                    <ButtonToggle color="primary" size="sm" style={{ marginTop: 5 }} 
                       onClick={this.buttonClick.bind(this)}>เข้าสู่ระบบ</ButtonToggle>
-                    <ButtonToggle color="secondary" size="sm" style={{ marginTop: 10, marginLeft: 10 }}
+                    <ButtonToggle color="secondary" size="sm" style={{ marginTop: 5, marginLeft: 10 }}
                       onClick={this.registerClick.bind(this)}>สมัครสมาชิก</ButtonToggle>
                   </center>
                 </Col>
