@@ -17,7 +17,7 @@ export class registerStore {
   address = "";
   user_type = "";
   message = "";
-
+  
   async register() {
     try {
       if (this.username == "" || this.password == "" || this.repassword == "" || this.name == "" || this.email == "" || this.tel == "" || this.citizen_id == "" ) {

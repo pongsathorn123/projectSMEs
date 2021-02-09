@@ -10,30 +10,27 @@ export class loginStore {
   username = "";
   password = "";
   message = "";
-  userid = "";
+  userId = "";
+
 
   async login() {
     try {
       const response = await instance.get(`/user/login/${this.username}/${this.password}`);
-      let user_id;
+
+      let userId;
       const data = response.data;
-      const type = response.data.type;
-      console.log(response.data.type);
+      
+
       if (data.check !== 1) {
         console.log(data.check);
-        user_id = 0;
+        userId = 0;
         this.message = "ไม่พบบัญชีผู้ใช้";
       } 
       else {
-        console.log(data.check);
-        user_id = data.id;
-        if (type == "wait") {
-          this.message = "บัญชีรอรับการยืนยัน";
-        }
-        else {
-
+         {
+          cookies.set("userId", data.userId, { path: "/", maxAge: 86400 });
           cookies.set("name", data.name, { path: "/", maxAge: 86400 });
-          cookies.set("type", data.type, { path: "/", maxAge: 86400 });
+          cookies.set("userType", data.userType, { path: "/", maxAge: 86400 });
           window.location.href = "/home";
           this.message = "";
         }

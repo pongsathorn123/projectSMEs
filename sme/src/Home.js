@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import { Card } from 'react-bootstrap';
 import Nav_owner from './components/Nav_owner';
-import Nav_notlogin from './components/Nav_notlogin';
 import Nav_inves from './components/Nav_inves';
 import cookies from "./cookies/cookie";
-import { Container, Col, Row, Form ,Button ,} from 'react-bootstrap';
+import { Container, Col, Row, Button } from 'react-bootstrap';
 
 
 class createProject extends Component{
@@ -13,7 +12,7 @@ render(){
         return(
           <div>
              
-            {(cookies.get('type') == "owner") ? <Nav_owner /> : <Nav_inves />}
+            {(cookies.get('userType') == "owner") ? <Nav_owner /> : <Nav_inves />}
             <div>
                  <center> <h1>SMES Project</h1> </center>
                 <h6 style= {{ marginLeft: 80 , marginRight:50}}>
@@ -72,7 +71,7 @@ render(){
                           <Card.Title>Project 3</Card.Title>
                           <Card.Text>
                           The company deals with the export of food.
-                          Foreign country       
+                          Foreign country    
                           </Card.Text>
                         <Button variant="primary"> Lead more</Button>
                     </Card.Body>

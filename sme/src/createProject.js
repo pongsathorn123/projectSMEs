@@ -1,12 +1,30 @@
 import React, { Component } from 'react';
 import { Card } from 'react-bootstrap';
 import Nav_owner from './components/Nav_owner';
+import { observer, inject } from "mobx-react";
 import cookies from "./cookies/cookie";
 import { Container, Col, Row, Form ,Button } from 'react-bootstrap'
+import smesStore from './store/smesStore';
 import './createProject.css';
 
 
 class createProject extends Component{
+
+  selectedSmestype(e) {
+    this.props.smesStore.smesType = e.target.value;
+  }
+
+  titleChange(e){
+    this.props.smesStore.title = e.target.value;
+  }
+
+  descriptionChange(e){
+    this.props.smesStore.description = e.target.value;
+  }
+
+  async btnClick() {
+    this.props.smesStore.smes();
+  }
 
 render(){
         return(
@@ -26,12 +44,11 @@ render(){
                                 <Form.Group controlId="exampleForm.SelectCustomSizeLg">
                                   <Form.Label style={{ marginLeft: 200}} >SMEs Type</Form.Label>
                                     <Col xs="12" md="9" sm="9" >
-                                      <Form.Control  style={{ marginTop: 0, borderRadius: 12, marginLeft: 180  }}  as="select" size="lg" custom>
-                                        <option>1</option>
-                                        <option>2</option>
-                                        <option>3</option>
-                                        <option>4</option>
-                                        <option>5</option>
+                                      <Form.Control  style={{ marginTop: 0, borderRadius: 12, marginLeft: 180  }}  as="select" size="lg" custom onChange={this.selectedSmestype.bind(this)}>
+                                        <option value="1" disabled selected>เลือกประเภทธุรกิจ</option>
+                                        <option value="s001">ธุรกิจด้านการผลิต</option>
+                                        <option value="s002">ธุรกิจการค้า</option>
+                                        <option value="s003">ธุรกิจด้านการบริการ</option>
                                       </Form.Control>
                                     </Col>
                                   </Form.Group>
@@ -46,7 +63,9 @@ render(){
                           <Form>
                               <Row>
                                   <Col  xs="12" md="9" sm="9" style={{ marginLeft:200 }}>
-                                  <Form.Control placeholder="First " />
+                                  <Form.Control placeholder="First " 
+                                    onChange={this.titleChange.bind(this)} 
+                                    value={this.props.smesStore.title}/>
                                   </Col>
                               </Row>
                           </Form>
@@ -59,7 +78,9 @@ render(){
                           <Form>
                               <Row>
                                   <Col  xs="12" md="9" sm="9" style={{ marginLeft: 200 }}>
-                                  <Form.Control  style = {{width : 550 ,height : 250}} />
+                                  <Form.Control  style = {{width : 550 ,height : 250}} 
+                                    onChange={this.descriptionChange.bind(this)} 
+                                    value={this.props.smesStore.description}/>
                                   </Col>
                               </Row>
                           </Form>
@@ -89,7 +110,8 @@ render(){
                                   />
                                   <br/>
                                   <br/>
-                                   <Button style={{marginLeft: 750}}variant="outline-success">Next</Button>{' '}
+                                  <br/><h3 style={{color: "red"}}>{this.props.smesStore.message}</h3>
+                                   <Button style={{marginLeft: 750}}variant="outline-success" onClick={this.btnClick.bind(this)}>Next</Button>{' '}
                                   </div>
                               ))}
                             </Form>
@@ -107,4 +129,4 @@ render(){
     }
 }
 
-export default createProject;
+export default inject('smesStore')(observer(createProject));

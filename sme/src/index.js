@@ -11,6 +11,7 @@ ReactDOM.render(
     rootStore={rootStore}
     loginStore={rootStore.loginStore}
     registerStore={rootStore.registerStore}
+    smesStore={rootStore.smesStore}
   >
     <App />
   </Provider>,
