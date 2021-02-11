@@ -1,5 +1,5 @@
 import UserLogin from './userLogin';
-import Home from './Home';
+import Home from './allProject';
 import UserRegister from './userRegister';
 import createProject from './createProject';
 
@@ -12,10 +12,10 @@ const routesApp = [
     component: UserLogin
   },
   {
-    path: "/home",
-    name: "home",
+    path: "/allProject",
+    name: "allProject",
     exact: true,
-    component: Home
+    component: allProject
   },
   {
     path: "/userRegister",
@@ -28,6 +28,12 @@ const routesApp = [
     name: "createProject",
     exact: true,
     component: createProject
+  },
+  {
+    path: "/investor",
+    name: "investor",
+    exact: true,
+    component: investor
   }
 ];
 
