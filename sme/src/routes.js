@@ -1,5 +1,5 @@
 import UserLogin from './userLogin';
-import Home from './allProject';
+import allProject from './allProject';
 import UserRegister from './userRegister';
 import createProject from './createProject';
 
@@ -29,12 +29,7 @@ const routesApp = [
     exact: true,
     component: createProject
   },
-  {
-    path: "/investor",
-    name: "investor",
-    exact: true,
-    component: investor
-  }
+
 ];
 
 export default routesApp;

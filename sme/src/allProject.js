@@ -9,7 +9,7 @@ import sme2 from './image/sme2.png';
 import sme3 from './image/sme3.png';
 
 
-class createProject extends Component{
+class AllProject extends Component{
 
 render(){
         return(
@@ -227,4 +227,4 @@ render(){
     }
 }
 
-export default createProject;
+export default AllProject;
