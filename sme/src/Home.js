@@ -78,6 +78,138 @@ render(){
                   </Card>
                 </Col>
               </Row>
+              <br/>
+              <Row>
+                    <Col>
+                        <Card   border="primary" style={{ width: '18rem' ,marginLeft : 50 ,marginTop:10}}>
+                            <Card.Img variant="top" src="sme1/100px180" />
+                            <Card.Body>
+                            <Card.Title>Project 1</Card.Title>
+                            <Card.Text>
+                          The company deals with the export of food.
+                          Foreign country       
+                          </Card.Text>
+                        <Button variant="primary"> Lead more</Button>
+                        </Card.Body>
+                         </Card>
+                     </Col>
+
+                <Col xs={3}>
+                  <Card  border="primary" style={{ width: '18rem' ,marginLeft : 0, marginTop:10 }}>
+                  <Card.Img variant="top" src="sme1/100px180" />
+                      <Card.Body>
+                          <Card.Title>Project 2</Card.Title>
+                          <Card.Text>
+                          The company deals with the export of food.
+                          Foreign country       
+                          </Card.Text>
+                        <Button variant="primary"> Lead more</Button>
+                    </Card.Body>
+                  </Card>
+                </Col>
+
+                  <Col>
+                  <Card  border="primary" style={{ width: '18rem' ,marginLeft : 100, marginTop:10 }}>
+                  <Card.Img variant="top" src="sme1/100px180" />
+                      <Card.Body>
+                          <Card.Title>Project 3</Card.Title>
+                          <Card.Text>
+                          The company deals with the export of food.
+                          Foreign country    
+                          </Card.Text>
+                        <Button variant="primary"> Lead more</Button>
+                    </Card.Body>
+                  </Card>
+                </Col>
+              </Row>
+              <br/>
+              <Row>
+                    <Col>
+                        <Card   border="primary" style={{ width: '18rem' ,marginLeft : 50 ,marginTop:10}}>
+                            <Card.Img variant="top" src="sme1/100px180" />
+                            <Card.Body>
+                            <Card.Title>Project 1</Card.Title>
+                            <Card.Text>
+                          The company deals with the export of food.
+                          Foreign country       
+                          </Card.Text>
+                        <Button variant="primary"> Lead more</Button>
+                        </Card.Body>
+                         </Card>
+                     </Col>
+
+                <Col xs={3}>
+                  <Card  border="primary" style={{ width: '18rem' ,marginLeft : 0, marginTop:10 }}>
+                  <Card.Img variant="top" src="sme1/100px180" />
+                      <Card.Body>
+                          <Card.Title>Project 2</Card.Title>
+                          <Card.Text>
+                          The company deals with the export of food.
+                          Foreign country       
+                          </Card.Text>
+                        <Button variant="primary"> Lead more</Button>
+                    </Card.Body>
+                  </Card>
+                </Col>
+
+                  <Col>
+                  <Card  border="primary" style={{ width: '18rem' ,marginLeft : 100, marginTop:10 }}>
+                  <Card.Img variant="top" src="sme1/100px180" />
+                      <Card.Body>
+                          <Card.Title>Project 3</Card.Title>
+                          <Card.Text>
+                          The company deals with the export of food.
+                          Foreign country    
+                          </Card.Text>
+                        <Button variant="primary"> Lead more</Button>
+                    </Card.Body>
+                  </Card>
+                </Col>
+              </Row>
+              <br/>
+              <Row>
+                    <Col>
+                        <Card   border="primary" style={{ width: '18rem' ,marginLeft : 50 ,marginTop:10}}>
+                            <Card.Img variant="top" src="sme1/100px180" />
+                            <Card.Body>
+                            <Card.Title>Project 1</Card.Title>
+                            <Card.Text>
+                          The company deals with the export of food.
+                          Foreign country       
+                          </Card.Text>
+                        <Button variant="primary"> Lead more</Button>
+                        </Card.Body>
+                         </Card>
+                     </Col>
+
+                <Col xs={3}>
+                  <Card  border="primary" style={{ width: '18rem' ,marginLeft : 0, marginTop:10 }}>
+                  <Card.Img variant="top" src="sme1/100px180" />
+                      <Card.Body>
+                          <Card.Title>Project 2</Card.Title>
+                          <Card.Text>
+                          The company deals with the export of food.
+                          Foreign country       
+                          </Card.Text>
+                        <Button variant="primary"> Lead more</Button>
+                    </Card.Body>
+                  </Card>
+                </Col>
+
+                  <Col>
+                  <Card  border="primary" style={{ width: '18rem' ,marginLeft : 100, marginTop:10 }}>
+                  <Card.Img variant="top" src="sme1/100px180" />
+                      <Card.Body>
+                          <Card.Title>Project 3</Card.Title>
+                          <Card.Text>
+                          The company deals with the export of food.
+                          Foreign country    
+                          </Card.Text>
+                        <Button variant="primary"> Lead more</Button>
+                    </Card.Body>
+                  </Card>
+                </Col>
+              </Row>
             </Container>
          </div>
         </div>
