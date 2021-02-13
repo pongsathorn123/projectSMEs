@@ -6,7 +6,7 @@ import cookies from "../cookies/cookie";
 import { Container, Col, Row, Form ,Button } from 'react-bootstrap'
 import smesStore from '../store/smesStore';
 import './createProject.css';
-
+import '../views/Setpage.css';
 
 class CreateProject extends Component{
 
@@ -31,8 +31,8 @@ render(){
           <div>
             <Nav_owner /> 
             <div>
-                <Card >
-                    <Card.Header style={{ backgroundColor: '#FFE160' ,labelColor:'white' }} >
+                <Card class="card" style={{ borderRadius: 12 }}>
+                    <Card.Header style={{ backgroundColor: '' ,}} >
                         สร้างโปรเจค
                         
                     </Card.Header>
@@ -96,6 +96,8 @@ render(){
                                </Row>
                             </Form>
                           </div>
+                        <br/>
+                        <br/>
                         <br/>
                     </Card>
                 </div>

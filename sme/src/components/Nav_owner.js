@@ -15,7 +15,7 @@ class Nav_owner extends Component{
 render(){
         return(
             <div>
-                <Navbar collapseOnSelect expand="lg" bg="light" variant="light" color="#FFE160">
+                <Navbar collapseOnSelect expand="lg" bg="#FFE160" variant="light"  style={{backgroundColor : '#FFE160'}}>
                     <Navbar.Brand href="#home">SMEs~ Business</Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
