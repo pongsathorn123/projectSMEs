@@ -31,18 +31,20 @@ render(){
           <div>
             <Nav_owner /> 
             <div>
-                <Card style ={{ backgroundColor: '#f0fbff'}}>
-                    <Card.Header style={{ backgroundColor: '#72d1e9'}}>
-                        CREATE PROJECT
+                <Card >
+                    <Card.Header style={{ backgroundColor: '#FFE160' ,labelColor:'white' }} >
+                        สร้างโปรเจค
                         
                     </Card.Header>
                     <br/>
-                      <div>
+                      <div>                   
+                        <h6 style={{ paddingLeft: 200}}>เริ่มแรก ! คุณต้องกำหนดประเภทธุรกิจของคุณ ประเภทธุรกิจสามารถเปลี่ยนในภายหลังได้</h6>
+
                         <Row>
                             <Col xs="12" md="3" sm="3">
                               <Form>
                                 <Form.Group controlId="exampleForm.SelectCustomSizeLg">
-                                  <Form.Label style={{ marginLeft: 200}} >SMEs Type</Form.Label>
+                                  <Form.Label style={{ marginLeft: 200}} >ประเภทธุรกิจ</Form.Label>
                                     <Col xs="12" md="9" sm="9" >
                                       <Form.Control  style={{ marginTop: 0, borderRadius: 12, marginLeft: 180  }}  as="select" size="lg" custom onChange={this.selectedSmestype.bind(this)}>
                                         <option value="1" disabled selected>เลือกประเภทธุรกิจ</option>
@@ -56,8 +58,7 @@ render(){
                               </Col>
                             </Row>
                           <h6 style={{ marginLeft: 200}}> 
-                          First, let’s get you set up.
-                          Pick a project category to connect with a specific community. You can always update this later.
+                          ชื่อธุรกิจ
                           </h6>             
                           
                           <Form>
@@ -69,51 +70,30 @@ render(){
                                   </Col>
                               </Row>
                           </Form>
+
                           <br/>
-                          
-                          <h6 style={{ marginLeft: 200 }}>
-                          Describe what you’ll be creating.
-                          And don’t worry, you can edit this later, too.
-                          </h6>
-                          <Form>
+                            <h6 style={{ marginLeft: 200 }}> คำอธิบาย</h6>
+                              <Form>
                               <Row>
-                                  <Col  xs="12" md="9" sm="9" style={{ marginLeft: 200 }}>
+                                  <Col style={{ marginLeft: 200 }}>
                                   <Form.Control  style = {{width : 550 ,height : 250}} 
                                     onChange={this.descriptionChange.bind(this)} 
                                     value={this.props.smesStore.description}/>
                                   </Col>
-                              </Row>
+                                  </Row>
                           </Form>
                       <br/>
-                      <h6 style={{marginLeft: 200}}>
-                      Finally, let’s confirm your eligibility.
-                      Tell us where you’re based and confirm a few other details before we proceed.
-                      </h6>
                       <Form>
-                              {[ 'radio'].map((type) => (
-                                  <div key={`custom-inline-${type}`} className="mb-3">
-                                  <Form.Check style={{marginLeft: 200}} 
-                                      custom
-                                      inline
-                                      label="I am at least 18 years old.
-                                      "
-                                      type={type}
-                                      id={`custom-inline-${type}-1`}
-                                  />
-                                  <br/>
-                                  <Form.Check style={{marginLeft: 200}}
-                                      custom
-                                      inline
-                                      label=" I can verify a bank account and government-issued ID."
-                                      type={type}
-                                      id={`custom-inline-${type}-2`}
-                                  />
-                                  <br/>
-                                  <br/>
+                              
                                   <br/><h3 style={{color: "red"}}>{this.props.smesStore.message}</h3>
-                                   <Button style={{marginLeft: 750}}variant="outline-success" onClick={this.btnClick.bind(this)}>Next</Button>{' '}
-                                  </div>
-                              ))}
+                                  <Row xs={2} md={4} lg={6}>
+                                    <Col >
+                                      <Button style={{marginLeft: 650 }}variant="secondary" disabledcolor >ยกเลิก</Button>{' '}
+                                      </Col>
+                                      <Col style={{marginLeft: 500 }} >
+                                      <Button style={{ }}variant="primary" conClick={this.btnClick.bind(this)}>ต่อไป</Button>{' '}
+                                    </Col>
+                               </Row>
                             </Form>
                           </div>
                         <br/>
