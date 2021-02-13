@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import { Card } from 'react-bootstrap';
-import Nav_owner from './components/Nav_owner';
+import Nav_owner from '../components/Nav_owner';
 import { observer, inject } from "mobx-react";
-import cookies from "./cookies/cookie";
+import cookies from "../cookies/cookie";
 import { Container, Col, Row, Form ,Button } from 'react-bootstrap'
-import smesStore from './store/smesStore';
+import smesStore from '../store/smesStore';
 import './createProject.css';
 
 
-class createProject extends Component{
+class CreateProject extends Component{
 
   selectedSmestype(e) {
     this.props.smesStore.smesType = e.target.value;
@@ -129,4 +129,4 @@ render(){
     }
 }
 
-export default inject('smesStore')(observer(createProject));
+export default inject('smesStore')(observer(CreateProject));

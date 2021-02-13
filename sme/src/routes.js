@@ -1,7 +1,8 @@
-import UserLogin from './userLogin';
-import allProject from './allProject';
-import UserRegister from './userRegister';
-import createProject from './createProject';
+import UserLogin from './views/userLogin';
+import AllProject from './views/allProject';
+import UserRegister from './views/userRegister';
+import CreateProject from './views/createProject';
+import Home from './views/home';
 
 const routesApp = [
   
@@ -15,7 +16,7 @@ const routesApp = [
     path: "/allProject",
     name: "allProject",
     exact: true,
-    component: allProject
+    component: AllProject
   },
   {
     path: "/userRegister",
@@ -27,8 +28,16 @@ const routesApp = [
     path: "/createProject",
     name: "createProject",
     exact: true,
-    component: createProject
+    component: CreateProject
   },
+  {
+    path: "/home",
+    name: "home",
+    exact: true,
+    component: Home
+  },
+  
+
 
 ];
 

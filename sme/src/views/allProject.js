@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { Card } from 'react-bootstrap';
-import Nav_owner from './components/Nav_owner';
-import Nav_inves from './components/Nav_inves';
-import cookies from "./cookies/cookie";
+import Nav_owner from '../components/Nav_owner';
+import Nav_inves from '../components/Nav_inves';
+import cookies from "../cookies/cookie";
 import { Container, Col, Row, Button } from 'react-bootstrap';
-import sme1 from './image/sme1.png';
-import sme2 from './image/sme2.png';
-import sme3 from './image/sme3.png';
+import sme1 from '../image/sme1.png';
+import sme2 from '../image/sme2.png';
+import sme3 from '../image/sme3.png';
 
 
 class AllProject extends Component{

@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import './App.css';
+import '../App.css';
 import './Setpage.css';
 import { Container, Col, Row, Card, Form, } from 'react-bootstrap'
 import { ButtonToggle } from 'reactstrap'
 import { observer, inject } from "mobx-react";
-import Nav_notlogin from './components/Nav_notlogin';
-import registerStore from './store/registerStore';
+import Nav_notlogin from '../components/Nav_notlogin';
+import registerStore from '../store/registerStore';
 
 class userRegister extends Component {
   

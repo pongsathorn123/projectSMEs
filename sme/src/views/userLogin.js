@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import './App.css';
-import './Setpage.css';
+import '../App';
+import '../views/Setpage.css';
 import { Container, Col, Row, Card, Form } from 'react-bootstrap'
 import { ButtonToggle } from 'reactstrap'
 import { observer, inject } from "mobx-react";
