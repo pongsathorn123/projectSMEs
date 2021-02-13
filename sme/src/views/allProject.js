@@ -17,22 +17,8 @@ render(){
              
             {(cookies.get('userType') == "owner") ? <Nav_owner /> : <Nav_inves />}
             <div>
-                 <center> <h1>SMES Project</h1> </center>
-                <h6 style= {{ marginLeft: 80 , marginRight:50 } }>
-                    Finding Project for investment and all project in FundingChain was proof by
-                  blockchain technology,It make your invest better and easier. Let's fund
-                  Finding Project for investment and all 
-                  project in FundingChain was proof by
-                  blockchain technology,It make your 
-                  invest better and easier. Let's fund
-                  Finding Project for investment and all project in FundingChain was proof by
-                  blockchain technology,It make your 
-                  invest better and easier. Let's fund
-                  Finding Project for investment and all project in FundingChain was proof by
-                  blockchain technology,It make your invest better and easier. Let's fund
-                  Finding Project for investment and all project in FundingChain was proof by
-                  blockchain technology,It make your invest better and easier. Let's fund
-                </h6>
+                 <center> <h3 style={{ paddingTop: '10px'}}>โปรเจคทั้งหมด</h3> </center>
+        
 
                 <br/>
                 <br/>

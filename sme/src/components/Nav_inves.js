@@ -15,13 +15,13 @@ class Nav_inves extends Component{
 render(){
         return(
             <div>
-                <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
-                    <Navbar.Brand href="#home">Web Name</Navbar.Brand>
+                <Navbar collapseOnSelect expand="lg" bg="#FFE160" variant="light" style={{backgroundColor : '#FFE160'}}>
+                    <Navbar.Brand href="#home">SMEs~ Business</Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="mr-auto">
-                        <Nav.Link href="#features">All Project</Nav.Link>
-                        <Nav.Link href="#pricing">How To</Nav.Link>
+                        <Nav.Link href="#features">โปรเจคทั้งหมด  |</Nav.Link>
+                        <Nav.Link href="#pricing">How to  |</Nav.Link>
                         </Nav>
                         <Nav>
                         <Nav className="mr-auto" style={{ marginTop: 5 }}></Nav>
