@@ -8,7 +8,7 @@ import smesStore from '../store/smesStore';
 import './createProject.css';
 import '../views/Setpage.css';
 
-class CreateProject extends Component{
+class CreateProjectDetail extends Component{
 
   selectedSmestype(e) {
     this.props.smesStore.smesType = e.target.value;
@@ -33,8 +33,7 @@ render(){
             <div>
                 <Card class="card" style={{ borderRadius: 12 }}>
                     <Card.Header style={{ backgroundColor: '' ,}} >
-                        สร้างโปรเจค
-                        
+                        รายละเอียดโปรเจค
                     </Card.Header>
                     <br/>
                       <div>                   
@@ -111,4 +110,4 @@ render(){
     }
 }
 
-export default inject('smesStore')(observer(CreateProject));
+export default inject('smesStore')(observer(CreateProjectDetail));

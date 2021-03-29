@@ -16,11 +16,11 @@ render(){
         return(
             <div>
                 <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
-                    <Navbar.Brand href="#home">Web Name</Navbar.Brand>
+                    <Navbar.Brand href="/home">Web Name</Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="mr-auto">
-                        <Nav.Link href="#features">All Project</Nav.Link>
+                        <Nav.Link href="/allProject">All Project</Nav.Link>
                         <Nav.Link href="#pricing">How To</Nav.Link>
                         </Nav>
                         <Nav>

@@ -16,12 +16,12 @@ render(){
         return(
             <div>
                 <Navbar collapseOnSelect expand="lg" bg="#FFE160" variant="light"  style={{backgroundColor : '#FFE160'}}>
-                    <Navbar.Brand href="#home">SMEs~ Business</Navbar.Brand>
+                    <Navbar.Brand href="/home">SMEs~ Business</Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="mr-auto">
-                        <Nav.Link href="#features">โปรเจคทั้งหมด  |</Nav.Link>
-                        <Nav.Link href="#pricing">สร้างโปรเจค   |</Nav.Link>
+                        <Nav.Link href="/allProject">โปรเจคทั้งหมด  |</Nav.Link>
+                        <Nav.Link href="/createProject">สร้างโปรเจค   |</Nav.Link>
                         <Nav.Link href="#pricing">ติดต่อเรา   |</Nav.Link>
                         </Nav>
                         <Nav>

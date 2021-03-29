@@ -25,6 +25,7 @@ export class smesStore {
            
             const response = await instance.get(`/user/smes/insert/${this.userId}/${this.title}/${this.description}/${this.smesType}`);
             console.log(response)
+            window.location.href = "/createProjectDetail";
         
       }
       

@@ -10,8 +10,10 @@ ReactDOM.render(
   <Provider
     rootStore={rootStore}
     loginStore={rootStore.loginStore}
+    authorStore={rootStore.authorStore}
     registerStore={rootStore.registerStore}
     smesStore={rootStore.smesStore}
+    allProjectStore={rootStore.allProjectStore}
   >
     <App />
   </Provider>,

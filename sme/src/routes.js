@@ -2,10 +2,30 @@ import UserLogin from './views/userLogin';
 import AllProject from './views/allProject';
 import UserRegister from './views/userRegister';
 import CreateProject from './views/createProject';
+import AuthorizeSme from './views/authorizeSme';
+import Authorize from './admin/authorize';
+import CreateProjectDetail from './views/createProjectDetail';
 import Home from './views/home';
 
 const routesApp = [
-  
+  {
+    path: "/createProjectDetail",
+    name: "createProjectDetail",
+    exact: true,
+    component: CreateProjectDetail
+  }, 
+  {
+    path: "/authorizeSme",
+    name: "authorizeSme",
+    exact: true,
+    component: AuthorizeSme
+  }, 
+  {
+    path: "/authorize",
+    name: "authorize",
+    exact: true,
+    component: Authorize
+  },
   {
     path: "/",
     name: "login",
