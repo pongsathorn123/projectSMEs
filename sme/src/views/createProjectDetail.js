@@ -4,27 +4,46 @@ import Nav_owner from '../components/Nav_owner';
 import { observer, inject } from "mobx-react";
 import cookies from "../cookies/cookie";
 import { Container, Col, Row, Form, Button } from 'react-bootstrap'
-import smesStore from '../store/smesStore';
+import smesdetailStore from '../store/smesdetailStore';
 import { CardBody, CardHeader, Input, Label } from 'reactstrap';
 import './createProject.css';
 import '../views/Setpage.css';
 
 class CreateProjectDetail extends Component {
+  
 
-  selectedSmestype(e) {
-    this.props.smesStore.smesType = e.target.value;
+  dateStartChange(e) {
+    this.props.smesdetailStore.dateStart = e.target.value;
+  }
+  dateEndChange(e) {
+    this.props.smesdetailStore.dateEnd = e.target.value;
+  }
+  moneyMaxChange(e) {
+    this.props.smesdetailStore.moneyMax = e.target.value;
+  }
+  moneyMinChange(e) {
+    this.props.smesdetailStore.moneyMin = e.target.value;
+  }
+  detailChange(e) {
+    this.props.smesdetailStore.detail = e.target.value;
+  }
+  telChange(e) {
+    this.props.smesdetailStore.tel = e.target.value;
+  }
+  emailChange(e) {
+    this.props.smesdetailStore.email = e.target.value;
+  }
+  facebookChange(e) {
+    this.props.smesdetailStore.facebook = e.target.value;
+  }
+  lineidChange(e) {
+    this.props.smesdetailStore.lineid = e.target.value;
   }
 
-  titleChange(e) {
-    this.props.smesStore.title = e.target.value;
-  }
 
-  descriptionChange(e) {
-    this.props.smesStore.description = e.target.value;
-  }
 
   async btnClick() {
-    this.props.smesStore.smes();
+    this.props.smesdetailStore.addsmesdetail();
   }
 
   render() {
@@ -32,75 +51,6 @@ class CreateProjectDetail extends Component {
       <div>
         <Nav_owner />
         <div>
-          {/* <Card class="card" style={{ borderRadius: 12 }}>
-                    <Card.Header style={{ backgroundColor: '' ,}} >
-                        รายละเอียดโปรเจค
-                    </Card.Header>
-                    <br/>
-                      <div>                   
-                        <h6 style={{ paddingLeft: 200}}>เริ่มแรก ! คุณต้องกำหนดประเภทธุรกิจของคุณ ประเภทธุรกิจสามารถเปลี่ยนในภายหลังได้</h6>
-
-                        <Row>
-                            <Col xs="12" md="3" sm="3">
-                              <Form>
-                                <Form.Group controlId="exampleForm.SelectCustomSizeLg">
-                                  <Form.Label style={{ marginLeft: 200}} >ประเภทธุรกิจ</Form.Label>
-                                    <Col xs="12" md="9" sm="9" >
-                                      <Form.Control  style={{ marginTop: 0, borderRadius: 12, marginLeft: 180  }}  as="select" size="lg" custom onChange={this.selectedSmestype.bind(this)}>
-                                        <option value="1" disabled selected>เลือกประเภทธุรกิจ</option>
-                                        <option value="ธุรกิจด้านการผลิต">ธุรกิจด้านการผลิต</option>
-                                        <option value="ธุรกิจด้านการผลิต">ธุรกิจการค้า</option>
-                                        <option value="ธุรกิจด้านการผลิต">ธุรกิจด้านการบริการ</option>
-                                      </Form.Control>
-                                    </Col>
-                                  </Form.Group>
-                                </Form>
-                              </Col>
-                            </Row>
-                          <h6 style={{ marginLeft: 200}}> 
-                          ชื่อธุรกิจ
-                          </h6>             
-                          
-                          <Form>
-                              <Row>
-                                  <Col  xs="12" md="9" sm="9" style={{ marginLeft:200 }}>
-                                  <Form.Control placeholder="First " 
-                                    onChange={this.titleChange.bind(this)} 
-                                    value={this.props.smesStore.title}/>
-                                  </Col>
-                              </Row>
-                          </Form>
-
-                          <br/>
-                            <h6 style={{ marginLeft: 200 }}> คำอธิบาย</h6>
-                              <Form>
-                              <Row>
-                                  <Col style={{ marginLeft: 200 }}>
-                                  <Form.Control  style = {{width : 550 ,height : 250}} 
-                                    onChange={this.descriptionChange.bind(this)} 
-                                    value={this.props.smesStore.description}/>
-                                  </Col>
-                                  </Row>
-                          </Form>
-                      <br/>
-                      <Form>
-                              
-                                  <br/><h3 style={{color: "red"}}>{this.props.smesStore.message}</h3>
-                                  <Row xs={2} md={4} lg={6}>
-                                    <Col >
-                                      <Button style={{marginLeft: 650 }}variant="secondary" disabledcolor >ยกเลิก</Button>{' '}
-                                      </Col>
-                                      <Col style={{marginLeft: 500 }} >
-                                      <Button style={{ }}variant="primary" onClick={this.btnClick.bind(this)}>ต่อไป</Button>{' '}
-                                    </Col>
-                               </Row>
-                            </Form>
-                          </div>
-                        <br/>
-                        <br/>
-                        <br/>
-                    </Card> */}
-
           <Container>
             <Card style={{ marginTop: 30 }}>
               <CardHeader className="text-center">
@@ -110,15 +60,20 @@ class CreateProjectDetail extends Component {
                 <Form style={{ margin: 10, marginLeft: 50, marginRight: 50 }}>
                   <Form.Group controlId="exampleForm.SelectCustomSizeLg">
                     <Form.Label style={{fontWeight: "bold" , fontSize:"18px"}}>ระยะเวลาที่เปิดรับ</Form.Label>
-
                     <Row>
                       <Col>
                         <Form.Label>วันเริ่ม</Form.Label>
-                        <Input type="date"></Input>
+                          <Input type="date" value="2017-06-01" 
+                            onChange={this.dateStartChange.bind(this)}
+                            value={this.props.smesdetailStore.dateStart} >
+                          </Input>
                       </Col>
                       <Col>
                         <Form.Label>วันสิ้นสุด</Form.Label>
-                        <Input type="date"></Input>
+                        <Input type="date" value="2017-06-01"
+                          onChange={this.dateEndChange.bind(this)}
+                          value={this.props.smesdetailStore.dateEnd} >
+                        </Input>
                       </Col>
                     </Row>
                   </Form.Group>
@@ -129,18 +84,27 @@ class CreateProjectDetail extends Component {
                     <Row>
                       <Col>
                         <Form.Label>น้อยสุด</Form.Label>
-                        <Input type="number" placeholder="0.00"></Input>
+                          <Input type="number" placeholder="0.00" 
+                            onChange={this.moneyMinChange.bind(this)}
+                            value={this.props.smesdetailStore.moneyMin} >
+                          </Input>
                       </Col>
                       <Col>
                         <Form.Label>มากสุด</Form.Label>
-                        <Input type="number" placeholder="0.00"></Input>
+                          <Input type="number" placeholder="0.00" 
+                            onChange={this.moneyMaxChange.bind(this)}
+                            value={this.props.smesdetailStore.moneyMax} >
+                           </Input>
                       </Col>
                     </Row>
                   </Form.Group>
 
                   <Form.Group>
                     <Form.Label style={{fontWeight: "bold" , fontSize:"18px"}}>รายละเอียดโปรเจคโดยละเอียด</Form.Label>
-                    <Form.Control placeholder="อธิบาย..." />
+                      <Form.Control placeholder="อธิบาย..." 
+                        onChange={this.detailChange.bind(this)}
+                        value={this.props.smesdetailStore.detail} >
+                      </Form.Control>
                   </Form.Group>
 
 
@@ -149,13 +113,19 @@ class CreateProjectDetail extends Component {
                     <Col>
                       <Form.Group>
                         <Form.Label>เบอร์โทรศัพท์</Form.Label>
-                        <Input type="text" placeholder="กรอกเบอร์โทรศัพท์"></Input>
+                          <Input type="text" placeholder="กรอกเบอร์โทรศัพท์" 
+                            onChange={this.telChange.bind(this)}
+                            value={this.props.smesdetailStore.tel} >
+                          </Input>
                       </Form.Group>
                     </Col>
                     <Col>
                       <Form.Group>
                         <Form.Label>E-mail</Form.Label>
-                        <Input type="text" placeholder="กรอก E-mail"></Input>
+                          <Input type="text" placeholder="กรอก E-mail"
+                            onChange={this.emailChange.bind(this)}
+                            value={this.props.smesdetailStore.email} >
+                          </Input>
                       </Form.Group>
                     </Col>
 
@@ -165,13 +135,19 @@ class CreateProjectDetail extends Component {
                     <Col>
                       <Form.Group>
                         <Form.Label>Facebook</Form.Label>
-                        <Input type="text" placeholder="กรอก Facebook"></Input>
+                          <Input type="text" placeholder="กรอก Facebook"
+                            onChange={this.facebookChange.bind(this)}
+                            value={this.props.smesdetailStore.facebook} >
+                          </Input>
                       </Form.Group>
                     </Col>
                     <Col>
                       <Form.Group>
                         <Form.Label>Line Id</Form.Label>
-                        <Input type="text" placeholder="กรอก Id Line"></Input>
+                          <Input type="text" placeholder="กรอก Id Line"
+                            onChange={this.lineidChange.bind(this)}
+                            value={this.props.smesdetailStore.lineid} >
+                          </Input>
                       </Form.Group>
                     </Col>
 
@@ -180,7 +156,7 @@ class CreateProjectDetail extends Component {
 
                   <Row>
                     <Col style={{ marginTop: 20 }}><center>
-                      <Button variant="primary">บันทึก</Button>{' '}
+                      <Button variant="primary" onClick={this.btnClick.bind(this)}>บันทึก</Button>{' '}
                     </center>
                     </Col>
                   </Row>
@@ -200,4 +176,4 @@ class CreateProjectDetail extends Component {
   }
 }
 
-export default inject('smesStore')(observer(CreateProjectDetail));
+export default inject('smesdetailStore')(observer(CreateProjectDetail));
