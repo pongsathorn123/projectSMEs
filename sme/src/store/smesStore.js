@@ -11,8 +11,7 @@ export class smesStore {
   smesType = "";
   title = "";
   description = "";
-
-
+  
   async smes() {
       debugger
     try {

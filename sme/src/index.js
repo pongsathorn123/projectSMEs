@@ -13,6 +13,7 @@ ReactDOM.render(
     authorStore={rootStore.authorStore}
     registerStore={rootStore.registerStore}
     smesStore={rootStore.smesStore}
+    smesdetailStore={rootStore.smesdetailStore}
     allProjectStore={rootStore.allProjectStore}
   >
     <App />
