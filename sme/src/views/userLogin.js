@@ -4,6 +4,7 @@ import '../views/Setpage.css';
 import { Container, Col, Row, Card, Form } from 'react-bootstrap'
 import { ButtonToggle } from 'reactstrap'
 import { observer, inject } from "mobx-react";
+import bgLogin from '../image/bgLogin.jpg';
 
 //import loginStore from './store/loginStore'
 
@@ -29,36 +30,30 @@ class userLogin extends Component {
 
   render() {
     return (
-      <div>
-        <Container style={{ marginTop: 80}} >
-          <Card class="card" style={{ borderRadius: 12 }}>
+      <div class="body-login">
+        <Container style={{ marginTop: 80 }} >
+          <Card class="card" style={{ borderRadius: 12}}>
             <Card.Header as="h3" className="text-center">Login</Card.Header>
+
             <Card.Body><center>
-              <Row>
-                <Col xs="12" md="3" sm="3">
-                  <Form.Label style={{ marginTop: 15 }}>Username</Form.Label>
-                </Col>
-                <Col xs="12" md="9" sm="9" >
-                  <Form.Control type="text" name="username" ref='username'
-                    placeholder="   Username" bsSize="lg "
-                    style={{ marginTop: 10, borderRadius: 12 }} 
-                    onChange={this.usernameChange.bind(this)} 
-                    value={this.props.loginStore.username} />
-                </Col>
-                <Col xs="12" md="3" sm="3">
-                  <Form.Label style={{ marginTop: 15 }}>Password</Form.Label>
-                </Col>
-                <Col xs="12" md="9" sm="9">
-                  <Form.Control type="password" name="password" ref='password'
-                    placeholder="   Password" bsSize="lg "
-                    style={{ marginTop: 10, borderRadius: 12 }} 
-                    onChange={this.passwordChange.bind(this)} 
-                    value={this.props.loginStore.password} />
-                </Col>
+
+              <Row style={{margin:50}}>
+                <Form.Label style={{marginLeft:50}}>Username</Form.Label>
+                <Form.Control type="text" name="username" ref='username'
+                  placeholder="   Username" bsSize="lg "
+                  style={{marginLeft:50,marginRight:50,marginTop:10 ,  borderRadius: 12 }}
+                  onChange={this.usernameChange.bind(this)}
+                  value={this.props.loginStore.username} />
+                <Form.Label style={{marginTop:40, marginLeft:50}}>Password</Form.Label>
+                <Form.Control type="password" name="password" ref='password'
+                  placeholder="   Password" bsSize="lg "
+                  style={{marginTop:10 ,  borderRadius: 12 ,marginLeft:50,marginRight:50 }}
+                  onChange={this.passwordChange.bind(this)}
+                  value={this.props.loginStore.password} />
                 <Col>
                   <center>
-                    <br/><Form.Label style={{color: "red"}}>{this.props.loginStore.message}</Form.Label><br/>
-                    <ButtonToggle color="primary" size="sm" style={{ marginTop: 5 }} 
+                    <br /><Form.Label style={{ color: "red" }}>{this.props.loginStore.message}</Form.Label><br />
+                    <ButtonToggle color="primary" size="sm" style={{ marginTop: 5 }}
                       onClick={this.buttonClick.bind(this)}>เข้าสู่ระบบ</ButtonToggle>
                     <ButtonToggle color="secondary" size="sm" style={{ marginTop: 5, marginLeft: 10 }}
                       onClick={this.registerClick.bind(this)}>สมัครสมาชิก</ButtonToggle>
