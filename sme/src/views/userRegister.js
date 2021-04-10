@@ -36,10 +36,10 @@ class userRegister extends Component {
     this.props.registerStore.address = e.target.value;
   }
   citizen_idChange(e) {
-    this.props.registerStore.citizen_id = e.target.value;
+    this.props.registerStore.citizenId = e.target.value;
   }
   selectedUsertype(e) {
-    this.props.registerStore.user_type = e.target.value;
+    this.props.registerStore.userIype = e.target.value;
   }
 
   async btnClick() {
@@ -49,6 +49,7 @@ class userRegister extends Component {
   render() {
     return (
       <div>
+        <Nav_notlogin />
         <Container style={{ marginTop: 60 }} >
           <Card class="card" style={{ borderRadius: 12 }}>
             <Card.Header as="h3" className="text-center">สมัครสมาชิก</Card.Header>
@@ -134,7 +135,7 @@ class userRegister extends Component {
                     placeholder="   เลขบัตรประชาชน" 
                     style={{ marginTop: 10, borderRadius: 12, height:40  }} 
                     onChange={this.citizen_idChange.bind(this)} 
-                    value={this.props.registerStore.citizen_id} />
+                    value={this.props.registerStore.citizenId} />
                 </Col>
               </Row>
               <Row>

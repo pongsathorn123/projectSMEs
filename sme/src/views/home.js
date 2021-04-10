@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import { Container, Col, Row, Form ,Button ,Card } from 'react-bootstrap'
 import Nav_owner from '../components/Nav_owner';
+import Nav_inves from '../components/Nav_inves';
+import Nav_Admin from '../components/Nav_Admin';
+import Nav_notlogin from '../components/Nav_notlogin';
+import cookies from "../cookies/cookie";
 import home3 from '../image/home3.png';
 import home4 from '../image/home4.png';
 
@@ -11,13 +15,18 @@ import home4 from '../image/home4.png';
 class home  extends Component {
 
 
-
+    
 
 
     render() {
         return (
+            
             <div>
-                    <Nav_owner/>
+                
+                {(cookies.get('userType') == "owner") ? <Nav_owner /> : ''}
+                {(cookies.get('userType') == "inves") ? <Nav_inves /> : ''}
+                {(cookies.get('userType') == "admin") ? <Nav_Admin /> : ''}
+                {(cookies.get('userType') == undefined) ? <Nav_notlogin /> : ''}        
             <Container>
                   <Row>
                     <Col>

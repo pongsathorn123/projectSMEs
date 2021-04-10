@@ -5,9 +5,10 @@ import { Card, Nav, Navbar } from 'react-bootstrap';
 
 class Nav_notlogin extends Component{
     logout() {
-        cookies.remove('user_id');
+        cookies.remove('userId');
         cookies.remove('name');
-        cookies.remove('type');
+        cookies.remove('username');
+        cookies.remove('userType');
       }  
     
 
@@ -15,20 +16,24 @@ class Nav_notlogin extends Component{
 render(){
         return(
             <div>
-                <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
-                    <Navbar.Brand href="/home">Web Name</Navbar.Brand>
+                <Navbar collapseOnSelect expand="lg" bg="#FFE160" variant="light"  style={{backgroundColor : '#FFE160'}}>
+                    <Navbar.Brand href="/home">SMEs~ Business</Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="mr-auto">
-                        <Nav.Link href="/allProject">All Project</Nav.Link>
-                        <Nav.Link href="#pricing">How To</Nav.Link>
+                        <Nav.Link href="/allProject">โปรเจคทั้งหมด  |</Nav.Link>
+                        <Nav.Link href="#pricing">ติดต่อเรา   |</Nav.Link>
                         </Nav>
                         <Nav>
                         <Nav className="mr-auto" style={{ marginTop: 5 }}></Nav>
-                            <Nav.Link href="/login">Login</Nav.Link>
+                            {/* <Nav.Link href="/" style={{marginLeft: 8}}>{cookies.get("name")}</Nav.Link> */}
+                            <Nav className="mr-auto" style={{ marginTop: 5 }}></Nav>
+                            <Nav.Link href="/">Login</Nav.Link>
                         </Nav>
                     </Navbar.Collapse>
                     </Navbar>
+         
+                
          </div>
          );
         

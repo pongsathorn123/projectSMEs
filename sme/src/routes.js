@@ -4,10 +4,25 @@ import UserRegister from './views/userRegister';
 import CreateProject from './views/createProject';
 import AuthorizeSme from './views/authorizeSme';
 import Authorize from './admin/authorize';
+import ShowSmesDetail from './views/showSmesDetail';
 import CreateProjectDetail from './views/createProjectDetail';
 import Home from './views/home';
+import EditAccount from './user/editAccount';
 
 const routesApp = [
+
+  {
+    path: "/editAccount",
+    name: "editAccount",
+    exact: true,
+    component: EditAccount
+  }, 
+  {
+    path: "/showSmesDetail",
+    name: "showSmesDetail",
+    exact: true,
+    component: ShowSmesDetail
+  }, 
   {
     path: "/createProjectDetail",
     name: "createProjectDetail",

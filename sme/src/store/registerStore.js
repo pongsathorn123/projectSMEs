@@ -13,14 +13,14 @@ export class registerStore {
   name = "";
   email = "";
   tel = "";
-  citizen_id = "";
+  citizenId = "";
   address = "";
-  user_type = "";
+  userType = "";
   message = "";
   
   async register() {
     try {
-      if (this.username == "" || this.password == "" || this.repassword == "" || this.name == "" || this.email == "" || this.tel == "" || this.citizen_id == "" ) {
+      if (this.username == "" || this.password == "" || this.repassword == "" || this.name == "" || this.email == "" || this.tel == "" || this.citizenId == "" ) {
         this.message = "กรุณากรอกข้อมูลให้ครบ";
         this.props.registerStore.username = "";
         this.props.registerStore.password = "";
@@ -43,7 +43,7 @@ export class registerStore {
             this.props.registerStore.repassword = "";
           }
           else {
-            const response2 = await instance.get(`/user/register/insert/${this.username}/${this.password}/${this.name}/${this.email}/${this.tel}/${this.address}/${this.citizen_id}/${this.user_type}`);
+            const response2 = await instance.get(`/user/register/insert/${this.username}/${this.password}/${this.name}/${this.email}/${this.tel}/${this.address}/${this.citizenId}/${this.userType}`);
             window.location.href = "/";
             this.message = "";
           }

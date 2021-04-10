@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Nav_owner from '../components/Nav_owner';
+import Nav_Admin from '../components/Nav_Admin';
 import {Container, Col, Row, Overlay, OverlayTrigger, Table} from 'react-bootstrap'
 import { ButtonToggle, Collapse, CardBody, Card } from 'reactstrap'
 import { observer, inject } from "mobx-react";
@@ -47,7 +47,7 @@ class authorize extends Component {
     return (
       <div>
         
-        <Nav_owner />
+        <Nav_Admin />
         <Container style={{marginTop: 30}}>
           <Table striped bordered hover size="sm"  responsive="sm">
             
@@ -63,9 +63,9 @@ class authorize extends Component {
                 this.props.authorStore.showList.map((element, index) => {
                   return (
                     <tr key={index} >
-                        <td>{element.username}</td>
-                        <td>{element.title}</td>
-                        <td>
+                        <td><center>{element.username}</center></td>
+                        <td><center>{element.title}</center></td>
+                        <td><center>
                             { 
                               (element.authorize == "verified") ? 
                               <ButtonToggle color="secondary" size="sm"
@@ -84,7 +84,9 @@ class authorize extends Component {
                                       ประเภทธุรกิจ: {element.smesType}<br/>
                                       รายละเอียดธุรกิจ: {element.description}
                                   </Card>
-                                </Collapse></td>
+                                </Collapse>
+                            </center>
+                          </td>
                     </tr>
                   );
                 })

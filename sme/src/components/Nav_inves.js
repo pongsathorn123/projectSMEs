@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import user from '../image/user.png';
 import cookies from '../cookies/cookie';
-import { Card, Nav, Navbar } from 'react-bootstrap';
+import { Card, Nav, Navbar, NavDropdown } from 'react-bootstrap';
 
 class Nav_inves extends Component{
     logout() {
-        cookies.remove('user_id');
+        cookies.remove('userId');
         cookies.remove('name');
-        cookies.remove('type');
+        cookies.remove('username');
+        cookies.remove('userType');
       }  
     
 
@@ -15,18 +16,22 @@ class Nav_inves extends Component{
 render(){
         return(
             <div>
-                <Navbar collapseOnSelect expand="lg" bg="#FFE160" variant="light" style={{backgroundColor : '#FFE160'}}>
+                <Navbar collapseOnSelect expand="lg" bg="#FFE160" variant="light"  style={{backgroundColor : '#FFE160'}}>
                     <Navbar.Brand href="/home">SMEs~ Business</Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="mr-auto">
                         <Nav.Link href="/allProject">โปรเจคทั้งหมด  |</Nav.Link>
-                        <Nav.Link href="#pricing">How to  |</Nav.Link>
+                        <Nav.Link href="#pricing">ติดต่อเรา   |</Nav.Link>
                         </Nav>
                         <Nav>
                         <Nav className="mr-auto" style={{ marginTop: 5 }}></Nav>
-                            <img src={user} height="25" width="25"/>
-                            <usntxt style={{marginLeft: 8, marginTop: 5}}>{cookies.get("name")}</usntxt >
+                            <NavDropdown style={{marginLeft: 8}} title={cookies.get("name")} id="basic-nav-dropdown">
+                            <NavDropdown.Item href="/editAccount">แก้ไขข้อมูล</NavDropdown.Item>
+                            <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
+                            <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
+                            </NavDropdown>
+                            {/* <Nav.Link href="/" style={{marginLeft: 8}}>{cookies.get("name")}</Nav.Link> */}
                             <Nav.Link href="/" onClick={this.logout.bind(this)}>Logout</Nav.Link>
                         </Nav>
                     </Navbar.Collapse>

@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Card } from 'react-bootstrap';
 import Nav_owner from '../components/Nav_owner';
+import Nav_inves from '../components/Nav_inves';
+import Nav_Admin from '../components/Nav_Admin';
 import { observer, inject } from "mobx-react";
 import cookies from "../cookies/cookie";
 import { Container, Col, Row, Form, Button } from 'react-bootstrap'
@@ -30,7 +32,9 @@ class CreateProject extends Component {
   render() {
     return (
       <div>
-        <Nav_owner />
+            {(cookies.get('userType') == "owner") ? <Nav_owner /> : ''}
+            {(cookies.get('userType') == "inves") ? <Nav_inves /> : ''}
+            {(cookies.get('userType') == "admin") ? <Nav_Admin /> : ''}
         <Container>
           <Card style={{ marginTop: 80 }}>
             <CardHeader className="text-center">

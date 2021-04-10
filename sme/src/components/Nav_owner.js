@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
 import user from '../image/user.png';
 import cookies from '../cookies/cookie';
-import { Card, Nav, Navbar } from 'react-bootstrap';
+import { Card, Nav, Navbar, NavDropdown } from 'react-bootstrap';
 
 class Nav_owner extends Component{
     logout() {
-        cookies.remove('user_id');
+        cookies.remove('userId');
         cookies.remove('name');
-        cookies.remove('type');
-      }  
+        cookies.remove('username');
+        cookies.remove('userType');
+      }   
     
 
 
@@ -26,7 +27,12 @@ render(){
                         </Nav>
                         <Nav>
                         <Nav className="mr-auto" style={{ marginTop: 5 }}></Nav>
-                            <usntxt style={{marginLeft: 8, marginTop: 5}}>{cookies.get("name")}</usntxt >
+                            <NavDropdown style={{marginLeft: 8}} title={cookies.get("name")} id="basic-nav-dropdown">
+                            <NavDropdown.Item href="/editAccount">แก้ไขข้อมูล</NavDropdown.Item>
+                            <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
+                            <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
+                            </NavDropdown>
+                            {/* <Nav.Link href="/" style={{marginLeft: 8}}>{cookies.get("name")}</Nav.Link> */}
                             <Nav.Link href="/" onClick={this.logout.bind(this)}>Logout</Nav.Link>
                         </Nav>
                     </Navbar.Collapse>
