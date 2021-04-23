@@ -2,11 +2,11 @@ import { computed, observable, autorun, action, decorate } from "mobx";
 import cookies from "../cookies/cookie";
 import instance from "./instance/axiosInstance";
 
-export class allProjectStore {
+export class myProjectStore {
     constructor(rootStore) {
         this.rootStore = rootStore;
       }
-    userId ="";
+    userId = cookies.get("userId");
     name ="";
     email ="";
     title ="";
@@ -28,8 +28,10 @@ export class allProjectStore {
 
 
     async show() {
+        console.log(this.userId)
         try {
-            const response = await instance.get(`/user/allproject/show`);
+            debugger
+            const response = await instance.get(`/user/myproject/show/${this.userId}`);
             this.list = response.data;
             const data = response.data;
             console.log(data);
@@ -39,23 +41,6 @@ export class allProjectStore {
             console.log(error);
         }
     }
-
-    async show2() {
-        debugger
-        try {
-            const response = await instance.get(`/user/allproject/show2/${this.smesType}`);
-            this.list = response.data;
-            const data2 = response.data;
-            console.log(data2);
-            console.log(cookies.get("userType"));
-            console.log(cookies.get("userId"));
-        } catch (error) {
-            console.log(error);
-        }
-    }
-
-    
-
 
     get showList() {
         
@@ -97,7 +82,7 @@ export class allProjectStore {
     }
 
 }
-decorate(allProjectStore, {
+decorate(myProjectStore, {
     api_host: observable,
     userId: observable,
     smesId: observable,
@@ -119,10 +104,9 @@ decorate(allProjectStore, {
     list: observable,
     smesType: observable,
     show: action,
-    show2: action,
-    showdetail: action,
-    showList: computed,
-    showdetailList: computed
+    // showdetail: action,
+    // showList: computed,
+    //showdetailList: computed
   });
 
-export default allProjectStore;
+export default myProjectStore;

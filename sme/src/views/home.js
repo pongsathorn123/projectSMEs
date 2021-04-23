@@ -1,12 +1,17 @@
 import React, { Component } from 'react';
-import { Container, Col, Row, Form ,Button ,Card } from 'react-bootstrap'
+import { Container, Col, Row, Form ,Button ,Card, Image, Carousel } from 'react-bootstrap'
 import Nav_owner from '../components/Nav_owner';
 import Nav_inves from '../components/Nav_inves';
 import Nav_Admin from '../components/Nav_Admin';
 import Nav_notlogin from '../components/Nav_notlogin';
 import cookies from "../cookies/cookie";
 import home3 from '../image/home3.png';
-import home4 from '../image/home4.png';
+import products from '../image/products.png';
+import page1 from '../image/page1.png';
+import page2 from '../image/page2.png';
+import page3 from '../image/page3.png';
+import Commerce from '../image/Commerce.png';
+import Service from '../image/Service.png';
 
 
 
@@ -14,11 +19,14 @@ import home4 from '../image/home4.png';
 
 class home  extends Component {
 
-
+    returnHome() {
+        window.location.href = "/home2";
+      }
+  
     
 
-
     render() {
+        
         return (
             
             <div>
@@ -27,43 +35,43 @@ class home  extends Component {
                 {(cookies.get('userType') == "inves") ? <Nav_inves /> : ''}
                 {(cookies.get('userType') == "admin") ? <Nav_Admin /> : ''}
                 {(cookies.get('userType') == undefined) ? <Nav_notlogin /> : ''}        
-            <Container>
-                  <Row>
-                    <Col>
-                        <Card style={{ width: '40rem' ,marginLeft : 0 ,marginTop:30}}>
-                         <Card.Header style={{ backgroundColor: '#63AFF8'}}>
-                             SMEs คืออะไร
-                         </Card.Header>
-                         <h6 style={{paddingLeft:'40px' ,marginTop:30}}>
-                         ธุรกิจ SMEs เป็นองค์กรที่มีส่วนสำคัญในการพัฒนาประเทศทั้งทางด้านเศรษฐกิจและสังคม 
-                        โดย SMEs ย่อมาจากคำว่า Small and Medium Enterprises หมายถึง ธุรกิจขนาดกลางและขนาดย่อม 
-                         </h6>
-                         <Card.Img style={{ paddingLeft: 5 , paddingRight :5  }} variant="top" src={home3} />
-                        <br/>
-                        <br/>
-                        </Card>
+            
+                <Carousel>
+                    <Carousel.Item>
+                        <img
+                        onClick={this.returnHome.bind(this)}
+                        className="d-block w-100"
+                        src={page1}
+                        alt="First slide"
+                        />
+                        <Carousel.Caption>
+                        </Carousel.Caption>
+                    </Carousel.Item>
+                    <Carousel.Item>
+                        <img
+                        onClick={this.returnHome.bind(this)}
+                        className="d-block w-100"
+                        src={page2}
+                        alt="Second slide"
+                        href="/home2"
+                        />
 
-                    </Col>
-                    <Col xs = '4' >
-                        <Card style={{ width: '30rem' ,marginLeft : 0 ,marginTop:30}}>
-                        <Card.Header style={{ backgroundColor: '#63AFF8'}}>
-                             ประเภทของ SMEs
-                         </Card.Header>
+                        <Carousel.Caption>
+                        </Carousel.Caption>
+                    </Carousel.Item>
+                    <Carousel.Item>
+                        <img
+                        onClick={this.returnHome.bind(this)}
+                        className="d-block w-100"
+                        src={page3}
+                        alt="Third slide"
+                        href="/home2"
+                        />
 
-                         <Card.Img variant="top" src={home4} />
-                        </Card>
-                    </Col>
-                </Row>
-            </Container>
-
-
-
-
-
-
-              
-
-
+                        <Carousel.Caption>
+                        </Carousel.Caption>
+                    </Carousel.Item>
+                    </Carousel>
             </div>
         )
     }

@@ -3,12 +3,12 @@ import Nav_owner from '../components/Nav_owner';
 import Nav_inves from '../components/Nav_inves';
 import Nav_Admin from '../components/Nav_Admin';
 import Nav_notlogin from '../components/Nav_notlogin';
-import Nav_sidebar from '../components/Nav_sidebar';
 import cookies from "../cookies/cookie";
-import { Card, Col, Row, Button, Table, CardColumns, CardDeck, Container } from 'react-bootstrap';
+import { Card, Col, Row, Button, Table, CardColumns, CardDeck, Container, Form } from 'react-bootstrap';
 import { observer, inject } from "mobx-react";
 import { IoIosPeople } from "react-icons/io";
 import './createProject.css';
+
 
 class AllProject extends Component{
 
@@ -22,7 +22,14 @@ class AllProject extends Component{
     this.props.allProjectStore.show();
 
   }
+  selectedSmestype(e) {
+    this.props.allProjectStore.smesType = e.target.value;
 
+    console.log(e.target.value)
+    debugger
+    this.props.allProjectStore.show2();
+  }
+ 
   showData = (event) => {
 
   }
@@ -35,17 +42,27 @@ class AllProject extends Component{
 
 render(){   
 return(
+  
           <div> 
             {(cookies.get('userType') == "owner") ? <Nav_owner /> : ''}
             {(cookies.get('userType') == "inves") ? <Nav_inves /> : ''}
             {(cookies.get('userType') == "admin") ? <Nav_Admin /> : ''}
             {(cookies.get('userType') == undefined) ? <Nav_notlogin /> : ''}  
+            
               <div>
-                <Container style ={{margin:"auto", width:1200, marginTop:50 }}>
+                <Container style ={{margin:"auto", width:1200, marginTop:80 }}>
               <Row > 
-                <Col xs="3" md="3" sm="3" style ={{padding: 10,}}>
-              <Nav_sidebar />
-              </Col>
+                <Col xs="3" md="3" sm="3" style ={{padding: 10}}>
+                  <Card>
+                    <Form.Control as="select"  placeholder="เลือกประเภทธุรกิจ" onChange={this.selectedSmestype.bind(this)} >
+                        <option value="1" disabled selected>เลือกประเภทธุรกิจ</option>
+                        <option value="ธุรกิจทั้งหมด">ธุรกิจทั้งหมด</option>
+                        <option value="ธุรกิจด้านการผลิต">ธุรกิจด้านการผลิต</option>
+                        <option value="ธุรกิจด้านการค้า">ธุรกิจการค้า</option>
+                        <option value="ธุรกิจด้านการบริการ">ธุรกิจด้านการบริการ</option>
+                    </Form.Control>
+                  </Card>
+                </Col>
                   <Col xs="9" md={{ span: 6, offset: 1 }} sm="9">
                   <Row>
                     {
@@ -64,7 +81,7 @@ return(
                                       </Col>
                                       <Col xs="12" md="3" sm="12">
                                         <button type="button" class="btn btn-success btn-sm" style={{marginTop:25}}
-                                                onClick={() => { this.buttonClick(element.smesId)}}>Lead more</button>
+                                                onClick={() => { this.buttonClick(element.smesId)}}>ดูเพิ่มเติม</button>
                                       </Col>
                                     </Row>
                                   </Card.Body>

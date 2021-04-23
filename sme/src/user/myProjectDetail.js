@@ -8,7 +8,7 @@ import { Card, Col, Row, Button, Table, Container } from 'react-bootstrap';
 import { observer, inject } from "mobx-react";
 import { IoIosPeople,IoMdContact } from "react-icons/io";
 
-class showSmesDetail extends Component{
+class myProjectDetail extends Component{
 
   constructor(props) {
     super(props);
@@ -24,7 +24,7 @@ class showSmesDetail extends Component{
   }
 
   returnClick() {
-    window.location.href = "/allProject";
+    window.location.href = "/myProject";
   }
 
 render(){   
@@ -98,4 +98,4 @@ return(
     }
   }
 
-export default inject('allProjectStore')(observer(showSmesDetail))
+export default inject('allProjectStore')(observer(myProjectDetail))

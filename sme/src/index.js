@@ -15,7 +15,8 @@ ReactDOM.render(
     smesStore={rootStore.smesStore}
     smesdetailStore={rootStore.smesdetailStore}
     allProjectStore={rootStore.allProjectStore}
-    editProfileStore={rootStore.editProfileStore}
+    editSmesStore={rootStore.editSmesStore}
+    myProjectStore={rootStore.myProjectStore}
   >
     <App />
   </Provider>,

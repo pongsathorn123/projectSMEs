@@ -14,20 +14,29 @@ export class smesdetailStore {
   moneyMin = "";
   detail = "";
   tel = "";
-  email = "";
-  facebook = "";
-  lineid = "";
+  email = "-";
+  facebook = "-";
+  lineid = "-";
+  message = "";
   
 
 async addsmesdetail() {
-    debugger
+  console.log(this.userId)
+  console.log(this.dateStart)
+  console.log(this.dateEnd)
+  console.log(this.moneyMax)
+  console.log(this.moneyMin)
+  console.log(this.detail)
+  console.log(this.tel)
+  console.log(this.email)
+  console.log(this.facebook)
+  console.log(this.lineid)
     try {
-        debugger
-        if (this.dateStart == "" || this.dateEnd == "" || this.moneyMax == "" || this.detail == "" || this.email == "" || this.tel == "" ) {
+      debugger
+        if (this.dateStart == "" || this.dateEnd == "" || this.moneyMax == "" ||this.moneyMin == "" || this.detail == ""  || this.tel == "" ) {
         this.message = "กรุณากรอกข้อมูลให้ครบ";
         }
         else {
-            debugger
         {
             const response = await instance.get(`/user/smesDetail/insert/${this.userId}/${this.dateStart}/${this.dateEnd}/${this.moneyMax}/${this.moneyMin}/${this.detail}/${this.tel}/${this.email}/${this.facebook}/${this.lineid}`);
             window.location.href = "/authorizeSme";
@@ -53,6 +62,7 @@ decorate(smesdetailStore, {
   email: observable,
   facebook: observable,
   lineid : observable,
+  message : observable,
   addsmesdetail: action,
 });
 

@@ -19,6 +19,7 @@ export class registerStore {
   message = "";
   
   async register() {
+    console.log(this.userType)
     try {
       if (this.username == "" || this.password == "" || this.repassword == "" || this.name == "" || this.email == "" || this.tel == "" || this.citizenId == "" ) {
         this.message = "กรุณากรอกข้อมูลให้ครบ";
@@ -66,6 +67,7 @@ decorate(registerStore, {
   citizen_id: observable,
   tel: observable,
   address: observable,
+  userType: observable,
   message: observable,
   register: action,
 });

@@ -1,8 +1,9 @@
 import { computed, observable, autorun, action, decorate } from "mobx";
 import cookies from "../cookies/cookie";
+import editSmes from "../user/editSmes";
 import instance from "./instance/axiosInstance";
 
-export class allProjectStore {
+export class editSmesStore {
     constructor(rootStore) {
         this.rootStore = rootStore;
       }
@@ -25,54 +26,23 @@ export class allProjectStore {
     description = "";
     authorize = "";
     smesType = "";
+    smesId = cookies.get("smesId");
+    detailId = "";
 
-
-    async show() {
-        try {
-            const response = await instance.get(`/user/allproject/show`);
-            this.list = response.data;
-            const data = response.data;
-            console.log(data);
-            console.log(cookies.get("userType"));
-            console.log(cookies.get("userId"));
-        } catch (error) {
-            console.log(error);
-        }
-    }
-
-    async show2() {
-        debugger
-        try {
-            const response = await instance.get(`/user/allproject/show2/${this.smesType}`);
-            this.list = response.data;
-            const data2 = response.data;
-            console.log(data2);
-            console.log(cookies.get("userType"));
-            console.log(cookies.get("userId"));
-        } catch (error) {
-            console.log(error);
-        }
-    }
-
-    
-
-
-    get showList() {
-        
-        return this.list;
-    }
-    
 
     async showdetail() {
         try {
-            const response = await instance.get(`/user/allproject/show/${cookies.get("smesId")}`);
+            const response = await instance.get(`/user/allproject/show/${this.smesId}`);
             this.data = response.data;
             console.log(this.detail);
 
+            this.smesId = this.data.smesId
+            this.detailId = this.data.detailId
             this.userId = this.data.userId
             this.name = this.data.name
             this.email = this.data.email
             this.title = this.data.title
+            this.description = this.data.description
             this.tel = this.data.tel
             this.userType = this.data.userType
             this.dateStart = this.data.dateStart
@@ -96,8 +66,49 @@ export class allProjectStore {
         return this.detail;
     }
 
-}
-decorate(allProjectStore, {
+    async editSmes() {
+        try {
+          const smesId = this.smesId;
+          const detailId = this.detailId;
+          const title = this.title;
+          const description = this.description;
+          const dateStart = this.dateStart;
+          const dateEnd = this.dateEnd;
+          const moneyMin = this.moneyMin;
+          const moneyMax = this.moneyMax
+          const detail = this.detail;
+          const tel = this.tel;
+          const email = this.email;
+          const facebook = this.facebook;
+          const lineid = this.lineid;
+          console.log(smesId);
+          console.log(detailId);
+          console.log(title);
+          console.log(description);
+          console.log(dateStart);
+          console.log(dateEnd);
+          console.log(moneyMin);
+          console.log(moneyMax);
+          console.log(detail);
+          console.log(tel);
+          console.log(email);
+          console.log(facebook);
+          console.log(lineid);
+
+          await instance.get(
+            `/user/editSmes/edit/${smesId}/${detailId}/${title}/${description}/${dateStart}/${dateEnd}/${moneyMin}/${moneyMax}/${detail}/${tel}/${email}/${facebook}/${lineid}`
+          );
+          // console.log(infoObject);
+          this.message2 = "แก้ไขข้อมูลสำเร็จ";
+        } catch (error) {
+          console.log(error);
+        }
+      }
+
+      
+
+} 
+decorate(editSmesStore, {
     api_host: observable,
     userId: observable,
     smesId: observable,
@@ -117,12 +128,12 @@ decorate(allProjectStore, {
     lineid: observable,
     data: observable,
     list: observable,
+    detailId: observable,
+    smesId: observable,
+    description: observable,
     smesType: observable,
-    show: action,
-    show2: action,
     showdetail: action,
-    showList: computed,
     showdetailList: computed
   });
 
-export default allProjectStore;
+export default editSmesStore;

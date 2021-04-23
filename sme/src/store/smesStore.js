@@ -10,12 +10,18 @@ export class smesStore {
   userId = cookies.get("userId");
   smesType = "";
   title = "";
+  message = "";
   description = "";
   
+  
   async smes() {
+    console.log(this.userId)
+    console.log(this.smesType)
+    console.log(this.title)
+    console.log(this.description)
       debugger
     try {
-      if (this.smesType == "" || this.title == "" ) {
+      if (this.smesType == "" || this.title == "" || this.description == "") {
         debugger
         this.message = "กรุณากรอกข้อมูลให้ครบ";
       }
@@ -40,6 +46,7 @@ decorate(smesStore, {
   title: observable,
   smesType: observable,
   description: observable,
+  message: observable,
   smes: action,
 });
 

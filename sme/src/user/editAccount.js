@@ -57,12 +57,12 @@ class editAccount extends Component {
             {(cookies.get('userType') == "inves") ? <Nav_inves /> : ''}
             {(cookies.get('userType') == "admin") ? <Nav_Admin /> : ''}
         <center>
-        <h1 style={{marginRight:80,marginTop:50}}>แก้ไขบัญชี </h1>
-        <Container style={{marginLeft:900,marginTop:20, width:300}}>
+        <h1 style={{marginTop:80}}>แก้ไขข้อมูล</h1>
+        <Container style={{marginTop:20, width:300}}>
         <Form>
-            <Form.Group controlId="exampleForm.ControlInput1">
+            <Form.Group controlId="exampleForm.ControlInput1" >
                 <Form.Label>ชื่อผู้ใช้</Form.Label>
-                <Form.Control type="text" placeholder="ชื่อผู้ใช้"
+                <Form.Control type="text" placeholder="ชื่อผู้ใช้" readOnly 
                   value={this.props.loginStore.username}/>
             </Form.Group>
             <Form.Group controlId="exampleForm.ControlInput1">
@@ -97,12 +97,12 @@ class editAccount extends Component {
             </Form.Group>
             <Form.Group controlId="exampleForm.ControlInput1">
                 <Form.Label>ประเภทผู้ใช้</Form.Label>
-                <Form.Control type="text" placeholder="ชื่อผู้ใช้"
+                <Form.Control type="text" placeholder="ชื่อผู้ใช้" readOnly
                   value={this.props.loginStore.userType}/>
             </Form.Group>
-            <Form.Label style={{ color: "red" }}>{this.props.loginStore.message2}</Form.Label>  <br/>
+            <Form.Label style={{ color: "green" }}>{this.props.loginStore.message2}</Form.Label>  <br/>
             <Button variant="primary" type="button"
-               onClick={this.buttonClick.bind(this)}>Submit</Button>
+               onClick={this.buttonClick.bind(this)}>ยืนยัน</Button>
         </Form>
         </Container>
         </center>

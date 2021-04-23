@@ -16,13 +16,12 @@ class Nav_notlogin extends Component{
 render(){
         return(
             <div>
-                <Navbar collapseOnSelect expand="lg" bg="#FFE160" variant="light"  style={{backgroundColor : '#FFE160'}}>
+                <Navbar collapseOnSelect expand="lg" bg="#FFE160" variant="light" fixed="top" style={{backgroundColor : '#FFE160'}}>
                     <Navbar.Brand href="/home">SMEs~ Business</Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="mr-auto">
                         <Nav.Link href="/allProject">โปรเจคทั้งหมด  |</Nav.Link>
-                        <Nav.Link href="#pricing">ติดต่อเรา   |</Nav.Link>
                         </Nav>
                         <Nav>
                         <Nav className="mr-auto" style={{ marginTop: 5 }}></Nav>

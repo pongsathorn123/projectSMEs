@@ -48,7 +48,7 @@ class authorize extends Component {
       <div>
         
         <Nav_Admin />
-        <Container style={{marginTop: 30}}>
+        <Container style={{marginTop: 80}}>
           <Table striped bordered hover size="sm"  responsive="sm">
             
             <thead>
@@ -80,6 +80,7 @@ class authorize extends Component {
                                   <Card style={{marginTop:5, color:"black", fontSize:"0.7em", padding:"5px 0px 5px 10px"}}>
                                       ชื่อบัญชี: {element.username}<br/>
                                       ชื่อผู้ใช้: {element.name}<br/>
+                                      อีเมล์: {element.email}<br/>
                                       ชื่อธุรกิจ: {element.title}<br/>
                                       ประเภทธุรกิจ: {element.smesType}<br/>
                                       รายละเอียดธุรกิจ: {element.description}
