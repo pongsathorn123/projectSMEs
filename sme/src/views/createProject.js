@@ -49,8 +49,8 @@ class CreateProject extends Component {
                   <Form.Control style={{ borderRadius: 12 }} as="select" size="md" custom onChange={this.selectedSmestype.bind(this)}>
                     <option value="1" disabled selected>เลือกประเภทธุรกิจ</option>
                     <option value="ธุรกิจด้านการผลิต">ธุรกิจด้านการผลิต</option>
-                    <option value="ธุรกิจด้านการผลิต">ธุรกิจการค้า</option>
-                    <option value="ธุรกิจด้านการผลิต">ธุรกิจด้านการบริการ</option>
+                    <option value="ธุรกิจด้านการค้า">ธุรกิจการค้า</option>
+                    <option value="ธุรกิจด้านการบริการ">ธุรกิจด้านการบริการ</option>
                   </Form.Control>
 
                 </Form.Group>
