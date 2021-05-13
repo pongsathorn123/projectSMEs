@@ -12,6 +12,7 @@ import page2 from '../image/page2.png';
 import page3 from '../image/page3.png';
 import Commerce from '../image/Commerce.png';
 import Service from '../image/Service.png';
+import Iframe from 'react-iframe'
 
 
 
@@ -35,7 +36,9 @@ class home  extends Component {
                 {(cookies.get('userType') == "inves") ? <Nav_inves /> : ''}
                 {(cookies.get('userType') == "admin") ? <Nav_Admin /> : ''}
                 {(cookies.get('userType') == undefined) ? <Nav_notlogin /> : ''}        
-            
+                
+                
+
                 <Carousel>
                     <Carousel.Item>
                         <img

@@ -4,6 +4,7 @@ import UserRegister from './views/userRegister';
 import CreateProject from './views/createProject';
 import AuthorizeSme from './views/authorizeSme';
 import Authorize from './admin/authorize';
+import UpdateSmes from './admin/updateSmes';
 import ShowSmesDetail from './views/showSmesDetail';
 import CreateProjectDetail from './views/createProjectDetail';
 import Home from './views/home';
@@ -15,6 +16,12 @@ import MyProjectDetail from './user/myProjectDetail';
 
 const routesApp = [
 
+  {
+    path: "/updateSmes",
+    name: "updateSmes",
+    exact: true,
+    component: UpdateSmes
+  }, 
   {
     path: "/myProjectDetail",
     name: "myProjectDetail",

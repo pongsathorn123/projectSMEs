@@ -13,7 +13,9 @@ import '../views/Setpage.css';
 
 class CreateProjectDetail extends Component {
   
-
+  componentDidMount(){
+    this.props.smesdetailStore.data();
+  }
   dateStartChange(e) {
     this.props.smesdetailStore.dateStart = e.target.value;
   }

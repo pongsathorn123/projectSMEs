@@ -14,6 +14,7 @@ ReactDOM.render(
     registerStore={rootStore.registerStore}
     smesStore={rootStore.smesStore}
     smesdetailStore={rootStore.smesdetailStore}
+    smesdataStore={rootStore.smesdataStore}
     allProjectStore={rootStore.allProjectStore}
     editSmesStore={rootStore.editSmesStore}
     myProjectStore={rootStore.myProjectStore}

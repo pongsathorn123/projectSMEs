@@ -22,6 +22,7 @@ render(){
                         <Nav className="mr-auto">
                         <Nav.Link href="/allProject">โปรเจคทั้งหมด  |</Nav.Link>
                         <Nav.Link href="/authorize">ตรวจสอบโปรเจค   |</Nav.Link>
+                        <Nav.Link href="/updateSmes">อัพเดทข้อมูลประจำเดือน  |</Nav.Link>
                         </Nav>
                         <Nav>
                         <Nav className="mr-auto" style={{ marginTop: 5 }}></Nav>

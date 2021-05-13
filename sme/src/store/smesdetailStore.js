@@ -8,6 +8,7 @@ export class smesdetailStore {
   }
 
   userId = cookies.get("userId");
+  smesId = "";
   dateStart = "";
   dateEnd = "";
   moneyMax = "";
@@ -18,6 +19,18 @@ export class smesdetailStore {
   facebook = "-";
   lineid = "-";
   message = "";
+  
+  async data() {
+    try {
+      const response = await instance.get(`/user/smesDetail/data`);
+      const data = response.data;
+      this.smesId = data.smesId;
+      console.log(this.smesId);
+     
+  }catch (error) {
+    console.log(error);
+}
+}
   
 
 async addsmesdetail() {
@@ -38,7 +51,7 @@ async addsmesdetail() {
         }
         else {
         {
-            const response = await instance.get(`/user/smesDetail/insert/${this.userId}/${this.dateStart}/${this.dateEnd}/${this.moneyMax}/${this.moneyMin}/${this.detail}/${this.tel}/${this.email}/${this.facebook}/${this.lineid}`);
+            const response = await instance.get(`/user/smesDetail/insert/${this.smesId}/${this.userId}/${this.dateStart}/${this.dateEnd}/${this.moneyMax}/${this.moneyMin}/${this.detail}/${this.tel}/${this.email}/${this.facebook}/${this.lineid}`);
             window.location.href = "/authorizeSme";
             this.message = "";
             }
@@ -53,6 +66,7 @@ async addsmesdetail() {
 
 decorate(smesdetailStore, {
   userId: observable,
+  smedId: observable,
   dateStart: observable,
   dateEnd: observable,
   moneyMax: observable,

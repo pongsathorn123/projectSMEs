@@ -69,7 +69,6 @@ export class editSmesStore {
     async editSmes() {
         try {
           const smesId = this.smesId;
-          const detailId = this.detailId;
           const title = this.title;
           const description = this.description;
           const dateStart = this.dateStart;
@@ -82,7 +81,6 @@ export class editSmesStore {
           const facebook = this.facebook;
           const lineid = this.lineid;
           console.log(smesId);
-          console.log(detailId);
           console.log(title);
           console.log(description);
           console.log(dateStart);
@@ -96,7 +94,7 @@ export class editSmesStore {
           console.log(lineid);
 
           await instance.get(
-            `/user/editSmes/edit/${smesId}/${detailId}/${title}/${description}/${dateStart}/${dateEnd}/${moneyMin}/${moneyMax}/${detail}/${tel}/${email}/${facebook}/${lineid}`
+            `/user/editSmes/edit/${smesId}/${title}/${description}/${dateStart}/${dateEnd}/${moneyMin}/${moneyMax}/${detail}/${tel}/${email}/${facebook}/${lineid}`
           );
           // console.log(infoObject);
           this.message2 = "แก้ไขข้อมูลสำเร็จ";
@@ -110,6 +108,7 @@ export class editSmesStore {
 } 
 decorate(editSmesStore, {
     api_host: observable,
+    message2: observable,
     userId: observable,
     smesId: observable,
     name: observable,
@@ -128,7 +127,6 @@ decorate(editSmesStore, {
     lineid: observable,
     data: observable,
     list: observable,
-    detailId: observable,
     smesId: observable,
     description: observable,
     smesType: observable,

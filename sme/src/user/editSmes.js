@@ -221,6 +221,7 @@ class editSmes extends Component {
             </Row>
             
             <center>
+            <Form.Label style={{ color: "red" }}>{this.props.editSmesStore.message2}</Form.Label>  <br/>
               <Button variant="secondary" style={{margin:2, marginTop:20, marginBottom :20}} onClick={this.returnClick.bind(this)} >ย้อนกลับ</Button>
             
               <Button  style={{margin:2 ,marginTop:20, marginBottom :20}} onClick={this.buttonClick.bind(this)} >บันทึก</Button>
