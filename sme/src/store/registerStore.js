@@ -14,7 +14,6 @@ export class registerStore {
   email = "";
   tel = "";
   citizenId = "";
-  address = "";
   userType = "";
   message = "";
   
@@ -44,8 +43,8 @@ export class registerStore {
             this.props.registerStore.repassword = "";
           }
           else {
-            const response2 = await instance.get(`/user/register/insert/${this.username}/${this.password}/${this.name}/${this.email}/${this.tel}/${this.address}/${this.citizenId}/${this.userType}`);
-            window.location.href = "/";
+            const response2 = await instance.get(`/user/register/insert/${this.username}/${this.password}/${this.name}/${this.email}/${this.tel}/${this.citizenId}/${this.userType}`);
+            window.location.href = "/authorizeUser";
             this.message = "";
           }
         }
@@ -66,7 +65,6 @@ decorate(registerStore, {
   email: observable,
   citizen_id: observable,
   tel: observable,
-  address: observable,
   userType: observable,
   message: observable,
   register: action,

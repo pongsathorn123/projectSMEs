@@ -6,7 +6,7 @@ export class loginStore {
   constructor(rootStore) {
     this.rootStore = rootStore;
   }
-
+  user_list = [];
   username = "";
   password = "";
   message = "";
@@ -19,6 +19,7 @@ export class loginStore {
   citizenId = "";
   userType = "";
   info = "";
+  userId = "";
 
 
   async login() {
@@ -34,25 +35,62 @@ export class loginStore {
         console.log(data.check);
         userId = 0;
         this.message = "ไม่พบบัญชีผู้ใช้";
-      } 
+      }
       else {
         userId = data.userId;
-        console.log(data.userType)
-        if (data.userType == "admin") {
-          cookies.set("userId", data.userId, { path: "/", maxAge: 86400 });
-          cookies.set("username", data.username, { path: "/", maxAge: 86400 });
-          cookies.set("name", data.name, { path: "/", maxAge: 86400 });
-          cookies.set("userType", data.userType, { path: "/", maxAge: 86400 });
-          window.location.href = "/authorize";
+        console.log(data.authorize)
+        // switch(data.authorize){
+        //   case "verified" : 
+        if (data.authorize == "verified")
+        
+          {
+            this.message = "";
+            userId = 0
+            if(data.userType == "admin"){
+                cookies.set("userId", data.userId, { path: "/", maxAge: 86400 });
+                cookies.set("username", data.username, { path: "/", maxAge: 86400 });
+                cookies.set("name", data.name, { path: "/", maxAge: 86400 });
+                cookies.set("userType", data.userType, { path: "/", maxAge: 86400 });
+                window.location.href = "/authorize";
+            }
+          else {
+              cookies.set("userId", data.userId, { path: "/", maxAge: 86400 });
+              cookies.set("username", data.username, { path: "/", maxAge: 86400 });
+              cookies.set("name", data.name, { path: "/", maxAge: 86400 });
+              cookies.set("userType", data.userType, { path: "/", maxAge: 86400 });
+              window.location.href = "/home";
+          }
         }
-        else {
-          cookies.set("userId", data.userId, { path: "/", maxAge: 86400 });
-          cookies.set("name", data.name, { path: "/", maxAge: 86400 });
-          cookies.set("userType", data.userType, { path: "/", maxAge: 86400 });
-          window.location.href = "/home";
-          this.message = "";
+          // case "unverified":
+          else {
+            this.message = "กำลังตรวจสอบบัญชีผู้ใช้"
         }
-      }
+      //   userId = data.userId;
+      //   console.log(data.userType)
+      //   console.log(data.authorize)
+      //   if (data.authorize == "verifide") {
+      //     console.log(data.check);
+      //     userId = 0;
+        
+      //   if (data.userType == "admin") {
+      //     cookies.set("userId", data.userId, { path: "/", maxAge: 86400 });
+      //     cookies.set("username", data.username, { path: "/", maxAge: 86400 });
+      //     cookies.set("name", data.name, { path: "/", maxAge: 86400 });
+      //     cookies.set("userType", data.userType, { path: "/", maxAge: 86400 });
+      //     window.location.href = "/authorize";
+      //   }
+      //   else if (data.authorize == "unverfide" ){
+      //     this.message = "[[[[";
+      //   }
+      //   else {
+      //     cookies.set("userId", data.userId, { path: "/", maxAge: 86400 });
+      //     cookies.set("username", data.username, { path: "/", maxAge: 86400 });
+      //     cookies.set("name", data.name, { path: "/", maxAge: 86400 });
+      //     cookies.set("userType", data.userType, { path: "/", maxAge: 86400 });
+      //     window.location.href = "/home";
+      //   }
+      // }
+    }
     } catch (error) {
       console.log(error);
     }
@@ -116,10 +154,48 @@ async delete() {
     console.log(error);
   }
 }
+
+async list() {
+  try {
+    const response = await instance.get(
+      `/user/login/list`
+    );
+    this.user_list = response.data;
+    console.log(this.user_list);
+  } catch (error) {
+    console.log(error);
+  }
 }
 
+async promote() {
+  try {
+      const response = await instance.get(`/user/login/promote/${this.userId}`
+    );
+    this.list();
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+async demote() {
+  try {
+      const response = await instance.get(`/user/login/demote/${this.userId}`
+    );
+    this.list();
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+
+get showList() {
+  return this.user_list;
+}
+}
+
+
+
 decorate(loginStore, {
-  api_host: observable,
   username: observable,
   password: observable,
   message: observable,
@@ -136,6 +212,11 @@ decorate(loginStore, {
   getInfo: action,
   edit: action,
   delete: action,
+  user_list: observable,
+  list: action,
+  promote: action,
+  demote: action,
+  showList: computed
 });
 
 export default loginStore;

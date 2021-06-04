@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Nav_owner from '../components/Nav_owner';
+import InvesChart from '../views/invesChart';
 import Nav_inves from '../components/Nav_inves';
 import Nav_Admin from '../components/Nav_Admin';
 import Nav_notlogin from '../components/Nav_notlogin';
@@ -25,6 +26,9 @@ class showSmesDetail extends Component{
 
   returnClick() {
     window.location.href = "/allProject";
+  }
+  reportClick() {
+    window.location.href = "/report";
   }
 
 render(){   
@@ -78,7 +82,7 @@ return(
                       <Card>
                         <Card.Body>
                           <Row>
-                            <Col xs="12" md="12" sm="12" style={{padding:10,marginLeft:10, marginBottom:10}}>
+                            <Col xs="12" md="12" sm="12" style={{marginLeft:10, marginBottom:2}}>
                               <Card.Text style={{fontWeight: "bold"}}>ข้อมูลการติดต่อ</Card.Text>
                               <Card.Text>เบอร์โทร : {this.props.allProjectStore.tel}</Card.Text>
                               <Card.Text>อีเมล์ : {this.props.allProjectStore.email}</Card.Text>
@@ -88,9 +92,15 @@ return(
                           </Row>
                         </Card.Body>
                       </Card>
+                      <Card>
+                        <InvesChart />
+                      </Card>
                     </Col>
                   </Row>
-                  <center><button type="button" class="btn btn-success btn-sm" style={{marginTop:25}} onClick={this.returnClick.bind(this)}>กลับหน้าหลัก</button></center>
+                  <center>
+                    {(cookies.get('userType') == "inves") ? <button type="button" class="btn btn-danger btn-sm" onClick={this.reportClick.bind(this)}>แจ้งปัญหา</button> : ''}
+                    <button type="button" class="btn btn-success btn-sm" style={{margin:25}} onClick={this.returnClick.bind(this)}>กลับหน้าหลัก</button>
+                  </center>
                 </Container>
               </div>
         </div>

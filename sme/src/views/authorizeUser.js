@@ -7,7 +7,7 @@ import cookies from "../cookies/cookie";
 import { IoHourglassOutline } from "react-icons/io5";
 
 
-class authorizeSme extends Component {
+class authorizeUser extends Component {
 
     render() {
         return (
@@ -23,7 +23,7 @@ class authorizeSme extends Component {
                             </div>
                             <h2 style={{marginTop:20}}>กำลังตรวจสอบ</h2>
                             <h6>แอดมินกำลังตรวจสอบข้อมูล</h6>
-                            <Button variant="primary" href="/allProject" style={{marginTop:20}}> กลับหน้าหลัก </Button>
+                            <Button variant="primary" href="/" style={{marginTop:20}}> ตกลง </Button>
                         </Card.Body>
                     </Card>
 
@@ -33,4 +33,4 @@ class authorizeSme extends Component {
         )
     }
 }
-export default authorizeSme;
+export default authorizeUser;

@@ -23,7 +23,7 @@ class authorizeSme extends Component {
                             </div>
                             <h2 style={{marginTop:20}}>กำลังตรวจสอบ</h2>
                             <h6>แอดมินกำลังตรวจสอบข้อมูล</h6>
-                            <Button variant="primary" href="/allProject" style={{marginTop:20}}> กลับหน้าหลัก </Button>
+                            <Button variant="primary" href="/myProject" style={{marginTop:20}}> กลับหน้าหลัก </Button>
                         </Card.Body>
                     </Card>
 

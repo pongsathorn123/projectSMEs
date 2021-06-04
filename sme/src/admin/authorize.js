@@ -48,7 +48,9 @@ class authorize extends Component {
       <div>
         
         <Nav_Admin />
-        <Container style={{marginTop: 80}}>
+        <center><h3 style={{marginTop: 80}}>ตรวจสอบธุรกิจ</h3></center>
+        <Container style={{marginTop: 40}}>
+          
           <Table striped bordered hover size="sm"  responsive="sm">
             
             <thead>

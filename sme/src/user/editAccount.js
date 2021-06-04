@@ -85,7 +85,7 @@ class editAccount extends Component {
             </Form.Group>
             <Form.Group controlId="exampleForm.ControlInput1">
                 <Form.Label>เบอร์</Form.Label>
-                <Form.Control type="text" placeholder="เบอร์" 
+                <Form.Control type="text" placeholder="เบอร์" maxLength="10"
                   onChange={this.telChange.bind(this)} 
                   value={this.props.loginStore.tel}/>
             </Form.Group>

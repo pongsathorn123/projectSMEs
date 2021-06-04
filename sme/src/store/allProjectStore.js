@@ -68,7 +68,7 @@ export class allProjectStore {
             const response = await instance.get(`/user/allproject/show/${cookies.get("smesId")}`);
             this.data = response.data;
             console.log(this.detail);
-
+            cookies.set("title", this.data.title, { path: "/", maxAge: 86400 });
             this.userId = this.data.userId
             this.name = this.data.name
             this.email = this.data.email

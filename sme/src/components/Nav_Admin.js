@@ -20,9 +20,12 @@ render(){
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="mr-auto">
-                        <Nav.Link href="/allProject">โปรเจคทั้งหมด  |</Nav.Link>
-                        <Nav.Link href="/authorize">ตรวจสอบโปรเจค   |</Nav.Link>
+                        <Nav.Link href="/allProject">ธุรกิจทั้งหมด  |</Nav.Link>
+                        <Nav.Link href="/authorize">ตรวจสอบธุรกิจ   |</Nav.Link>
+                        <Nav.Link href="/authorizeUserAdmin">ตรวจสอบบัญชีผู้ใช้   |</Nav.Link>
+                        <Nav.Link href="/AuthorizeInvesAdmin">เพิ่มจำนวนนักลงทุน   |</Nav.Link>
                         <Nav.Link href="/updateSmes">อัพเดทข้อมูลประจำเดือน  |</Nav.Link>
+                        <Nav.Link href="/authorizereportAdmin">รายงานธุรกิจ  |</Nav.Link>
                         </Nav>
                         <Nav>
                         <Nav className="mr-auto" style={{ marginTop: 5 }}></Nav>

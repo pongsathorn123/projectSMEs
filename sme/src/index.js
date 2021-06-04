@@ -10,6 +10,7 @@ ReactDOM.render(
   <Provider
     rootStore={rootStore}
     loginStore={rootStore.loginStore}
+    reportStore={rootStore.reportStore}
     authorStore={rootStore.authorStore}
     registerStore={rootStore.registerStore}
     smesStore={rootStore.smesStore}
@@ -18,6 +19,8 @@ ReactDOM.render(
     allProjectStore={rootStore.allProjectStore}
     editSmesStore={rootStore.editSmesStore}
     myProjectStore={rootStore.myProjectStore}
+    addinvesStore={rootStore.addinvesStore}
+    inveschartStore={rootStore.inveschartStore}
   >
     <App />
   </Provider>,

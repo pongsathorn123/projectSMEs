@@ -4,18 +4,88 @@ import UserRegister from './views/userRegister';
 import CreateProject from './views/createProject';
 import AuthorizeSme from './views/authorizeSme';
 import Authorize from './admin/authorize';
+import ReportDetail from './admin/reportDetail';
 import UpdateSmes from './admin/updateSmes';
 import ShowSmesDetail from './views/showSmesDetail';
 import CreateProjectDetail from './views/createProjectDetail';
 import Home from './views/home';
 import Home2 from './views/home2';
+import AuthorizeInves from './views/authorizeInves';
+import AuthorizeInvesAdmin from './admin/authorizeInves';
+import AuthorizeUserAdmin from './admin/authorizeUser';
+import AuthorizeReportAdmin from './admin/authorizeReport';
+import AuthorizeReport from './views/authorizeReport';
+import AuthorizeUser from './views/authorizeUser';
+import InvesChart from './views/invesChart';
 import EditAccount from './user/editAccount';
 import EditSmes from './user/editSmes';
+import AddInves from './user/addInves';
 import MyProject from './user/myProject';
+import Report from './user/report';
 import MyProjectDetail from './user/myProjectDetail';
 
 const routesApp = [
 
+  {
+    path: "/reportdetail",
+    name: "ReportDetail",
+    exact: true,
+    component: ReportDetail
+  },
+  {
+    path: "/report",
+    name: "Report",
+    exact: true,
+    component: Report
+  },
+  {
+    path: "/inveschart",
+    name: "InvesChart",
+    exact: true,
+    component: InvesChart
+  },
+  {
+    path: "/authorizeInvesAdmin",
+    name: "AuthorizeInvesAdmin",
+    exact: true,
+    component: AuthorizeInvesAdmin
+  }, 
+  {
+    path: "/authorizeReport",
+    name: "AuthorizeReport",
+    exact: true,
+    component: AuthorizeReport
+  }, 
+  {
+    path: "/authorizeUserAdmin",
+    name: "AuthorizeUserAdmin",
+    exact: true,
+    component: AuthorizeUserAdmin
+  }, 
+  {
+    path: "/authorizeReportAdmin",
+    name: "AuthorizeReportAdmin",
+    exact: true,
+    component: AuthorizeReportAdmin
+  }, 
+  {
+    path: "/authorizeUser",
+    name: "AuthorizeUser",
+    exact: true,
+    component: AuthorizeUser
+  }, 
+  {
+    path: "/authorizeInves",
+    name: "AuthorizeInves",
+    exact: true,
+    component: AuthorizeInves
+  }, 
+  {
+    path: "/addInves",
+    name: "AddInves",
+    exact: true,
+    component: AddInves
+  }, 
   {
     path: "/updateSmes",
     name: "updateSmes",

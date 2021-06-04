@@ -19,6 +19,9 @@ export class smesdetailStore {
   facebook = "-";
   lineid = "-";
   message = "";
+  info = "";
+  name = "";
+  
   
   async data() {
     try {
@@ -26,12 +29,27 @@ export class smesdetailStore {
       const data = response.data;
       this.smesId = data.smesId;
       console.log(this.smesId);
+      this.getInfo();
      
   }catch (error) {
     console.log(error);
 }
 }
-  
+
+async getInfo() {
+  try {
+    const response = await instance.get(
+      `/user/login/info/${cookies.get("userId")}`
+    );
+    this.info = response.data;
+    console.log(this.info);
+    this.name = this.info.name
+    this.email = this.info.email
+    this.tel = this.info.tel
+  } catch (error) {
+    console.log(error);
+  }
+}
 
 async addsmesdetail() {
   console.log(this.userId)
@@ -40,6 +58,7 @@ async addsmesdetail() {
   console.log(this.moneyMax)
   console.log(this.moneyMin)
   console.log(this.detail)
+  console.log(this.name)
   console.log(this.tel)
   console.log(this.email)
   console.log(this.facebook)
@@ -51,7 +70,7 @@ async addsmesdetail() {
         }
         else {
         {
-            const response = await instance.get(`/user/smesDetail/insert/${this.smesId}/${this.userId}/${this.dateStart}/${this.dateEnd}/${this.moneyMax}/${this.moneyMin}/${this.detail}/${this.tel}/${this.email}/${this.facebook}/${this.lineid}`);
+            const response = await instance.get(`/user/smesDetail/insert/${this.smesId}/${this.userId}/${this.dateStart}/${this.dateEnd}/${this.moneyMax}/${this.moneyMin}/${this.detail}/${this.name}/${this.tel}/${this.email}/${this.facebook}/${this.lineid}`);
             window.location.href = "/authorizeSme";
             this.message = "";
             }
@@ -73,11 +92,14 @@ decorate(smesdetailStore, {
   moneyMin: observable,
   detail: observable,
   tel: observable,
+  name: observable,
   email: observable,
   facebook: observable,
   lineid : observable,
   message : observable,
   addsmesdetail: action,
+  data: action,
+  getinfo: action,
 });
 
 export default smesdetailStore;

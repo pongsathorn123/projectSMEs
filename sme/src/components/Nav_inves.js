@@ -21,7 +21,7 @@ render(){
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="mr-auto">
-                        <Nav.Link href="/allProject">โปรเจคทั้งหมด  |</Nav.Link>
+                        <Nav.Link href="/allProject">ธุรกิจทั้งหมด  |</Nav.Link>
                         </Nav>
                         <Nav>
                         <Nav className="mr-auto" style={{ marginTop: 5 }}></Nav>

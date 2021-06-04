@@ -38,7 +38,7 @@ class CreateProject extends Component {
         <Container>
           <Card style={{ marginTop: 130 }}>
             <CardHeader className="text-center">
-              <h3>สร้างโปรเจค</h3>
+              <h3>สร้างธุรกิจ</h3>
             </CardHeader>
             <CardBody>
               <Form style={{ margin: 20, marginLeft: 50, marginRight: 50 }}>

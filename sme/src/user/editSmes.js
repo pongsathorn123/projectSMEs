@@ -52,7 +52,9 @@ class editSmes extends Component {
     detailChange(e) {
         this.props.editSmesStore.detail = e.target.value;
     }
-
+    nameChange(e) {
+      this.props.editSmesStore.name = e.target.value;
+  }
     telChange(e) {
         this.props.editSmesStore.tel = e.target.value;
     }
@@ -168,6 +170,13 @@ class editSmes extends Component {
 
 
                   <Form.Label style={{fontWeight: "bold" , fontSize:"18px"}}>ข้อมูลติดต่อ</Form.Label>
+                  <Form.Group>
+                        <Form.Label>ชื่อ - นามสกุล</Form.Label><Form.Label style={{color:"red"}}>*</Form.Label>
+                          <Input type="text" placeholder="ชื่อ - นามสกุล" maxLength="10"
+                          onChange={this.nameChange.bind(this)}
+                          value={this.props.editSmesStore.name} >
+                          </Input>
+                      </Form.Group>
                   <Row>
                     <Col>
                       <Form.Group>

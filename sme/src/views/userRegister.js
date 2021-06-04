@@ -32,9 +32,6 @@ class userRegister extends Component {
   telChange(e) {
     this.props.registerStore.tel = e.target.value;
   }
-  addressChange(e) {
-    this.props.registerStore.address = e.target.value;
-  }
   citizen_idChange(e) {
     this.props.registerStore.citizenId = e.target.value;
   }
@@ -141,17 +138,6 @@ class userRegister extends Component {
                     placeholder="   เบอร์โทรศัพท์" 
                     style={{ marginTop: 10, borderRadius: 12, height:40  }} 
                     onChange={this.telChange.bind(this)}/>
-                </Col>
-              </Row>
-              <Row>
-                <Col xs="12" md="3" sm="3">
-                  <Form.Label style={{ marginTop: 15 }}>ที่อยู่</Form.Label><Form.Label style={{color:"red"}}>*</Form.Label>
-                </Col>
-                <Col xs="12" md="9" sm="9">
-                  <Form.Control type="text" name="address" ref='address' 
-                    placeholder="   ที่อยู่" 
-                    style={{ marginTop: 10, borderRadius: 12, height:40  }} 
-                    onChange={this.addressChange.bind(this)}/>
                 </Col>
               </Row>
               <Form.Label>กรุณากรอกข้อมูลที่มีเครื่องหมาย</Form.Label><Form.Label style={{color:"red", padding:5}}>*</Form.Label><Form.Label> ให้ครบ</Form.Label>

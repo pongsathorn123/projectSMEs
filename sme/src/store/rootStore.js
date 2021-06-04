@@ -7,10 +7,14 @@ import authorStore from './authorStore';
 import allProjectStore from './allProjectStore';
 import editSmesStore from './editSmesStore';
 import myProjectStore from './myProjectStore';
+import addinvesStore from './addinvesStore';
+import inveschartStore from './inveschartStore';
+import reportStore from './reportStore';
 
 export class rootStore {
   constructor() {
       this.myProjectStore = new myProjectStore(this);
+      this.reportStore = new reportStore(this);
       this.authorStore = new authorStore(this);
       this.loginStore = new loginStore(this);     
       this.registerStore = new registerStore(this);
@@ -19,6 +23,8 @@ export class rootStore {
       this.smesdataStore = new smesdataStore(this);
       this.allProjectStore = new allProjectStore(this);
       this.editSmesStore = new editSmesStore(this);
+      this.addinvesStore = new addinvesStore(this);
+      this.inveschartStore = new inveschartStore(this);
       
   }
 }

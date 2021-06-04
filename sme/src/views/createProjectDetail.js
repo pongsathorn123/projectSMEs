@@ -31,6 +31,9 @@ class CreateProjectDetail extends Component {
   detailChange(e) {
     this.props.smesdetailStore.detail = e.target.value;
   }
+  nameChange(e) {
+    this.props.smesdetailStore.name = e.target.value;
+  }
   telChange(e) {
     this.props.smesdetailStore.tel = e.target.value;
   }
@@ -115,6 +118,13 @@ class CreateProjectDetail extends Component {
 
 
                   <Form.Label style={{fontWeight: "bold" , fontSize:"18px"}}>ข้อมูลติดต่อ</Form.Label>
+                  <Form.Group>
+                      <Form.Label>ชื่อ - นามสกุล</Form.Label><Form.Label style={{color:"red"}}>*</Form.Label>
+                        <Input type="text" placeholder="ชื่อ - นามสกุล" maxLength="10"
+                          onChange={this.nameChange.bind(this)}
+                          value={this.props.smesdetailStore.name} >
+                        </Input>
+                  </Form.Group>
                   <Row>
                     <Col>
                       <Form.Group>
@@ -129,13 +139,14 @@ class CreateProjectDetail extends Component {
                       <Form.Group>
                         <Form.Label>E-mail</Form.Label>
                           <Input type="text" placeholder="กรอก E-mail"
-                            onChange={this.emailChange.bind(this)}>
+                            onChange={this.emailChange.bind(this)}
+                            value={this.props.smesdetailStore.email} >
                           </Input>
                       </Form.Group>
                     </Col>
 
                   </Row>
-
+                  <Form.Label style={{fontWeight: "bold" , fontSize:"18px"}}>รายละเอียดเพิ่มเติม</Form.Label>
                   <Row>
                     <Col>
                       <Form.Group>
@@ -157,8 +168,9 @@ class CreateProjectDetail extends Component {
                   </Row>
 
                   <Form.Label style={{marginLeft:10}}>กรุณากรอกข้อมูลที่มีเครื่องหมาย</Form.Label><Form.Label style={{color:"red", padding:5}}>*</Form.Label><Form.Label> ให้ครบ</Form.Label>
+                  <Form.Label style={{marginLeft:20}}>ตรวจสอบข้อมูลให้ถูกต้องก่อนกดบันทึก</Form.Label>
                   <Row>
-                    <Col style={{ marginTop: 20 }}><center>
+                    <Col style={{ marginTop: 5 }}><center>
                     <Form.Label style={{ color: "red" }}>{this.props.smesdetailStore.message}</Form.Label>  <br/>
                       <Button variant="primary" onClick={this.btnClick.bind(this)}>บันทึก</Button>
                     </center>
@@ -180,4 +192,4 @@ class CreateProjectDetail extends Component {
   }
 }
 
-export default inject('smesdetailStore')(observer(CreateProjectDetail));
+export default inject('smesdetailStore','loginStore')(observer(CreateProjectDetail));

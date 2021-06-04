@@ -45,8 +45,14 @@ class myProject extends Component{
     } else {
         window.location.href = "/myProject";
     }
-    
   }
+    async addinvesClick(smesId) {
+      cookies.set("smesId",smesId, { path: "/", maxAge: 86400 })
+          window.location.href = "/addInves";
+      }
+    
+  
+
 
 render(){   
 return(
@@ -71,18 +77,20 @@ return(
                                       <Col xs="4" md="4" sm="4" className="icon-size" >
                                         <IoIosPeople style ={{marginLeft:25}}/>
                                       </Col>
-                                      <Col xs="4" md="4" sm="4">
+                                      <Col xs="4" md="4" sm="4" style={{marginTop:10}}>
                                         <Card.Text style={{fontWeight: "bold"}}>{element.title}</Card.Text>
                                         <Card.Text>{element.smesType}</Card.Text>
                                       </Col>
-                                      <Col xs="4" md="4" sm="4" >
-                                            <button type="button" class="btn btn-success btn-sm" style={{marginTop:25, marginRight:5}}
-                                            onClick={() => { this.detailClick(element.smesId)}}>ดูเพิ่มเติม</button>
-                                            <button type="button" class="btn btn-info btn-sm" style={{marginTop:25, marginRight:5}}
-                                            onClick={() => { this.editClick(element.smesId)}}>แก้ไข</button>
-                                            <button type="button" class="btn btn-danger btn-sm" style={{marginTop:25, marginRight:5}}
-                                            onClick={() => { this.deleteClick(element.smesId)}}>ลบ</button>
-                                      </Col>
+                                        <Col xs="4" md="4" sm="4" >
+                                              <button type="button" class="btn btn-success btn-sm" style={{marginTop:10, marginRight:5}}
+                                              onClick={() => { this.detailClick(element.smesId)}}>ดูเพิ่มเติม</button>
+                                              <button type="button" class="btn btn-info btn-sm" style={{marginTop:10, marginRight:5}}
+                                              onClick={() => { this.editClick(element.smesId)}}>แก้ไข</button>
+                                              <button type="button" class="btn btn-danger btn-sm" style={{marginTop:10, marginRight:5}}
+                                              onClick={() => { this.deleteClick(element.smesId)}}>ลบ</button>
+                                               <button type="button" class="btn btn-secondary btn-sm" style={{marginTop:10, width:163}}
+                                              onClick={() => { this.addinvesClick(element.smesId)}}>เพิ่มจำนวนนักลงทุน</button>
+                                        </Col>
                                     </Row>
                                   </Card.Body>
                                 

@@ -76,6 +76,7 @@ export class editSmesStore {
           const moneyMin = this.moneyMin;
           const moneyMax = this.moneyMax
           const detail = this.detail;
+          const name = this.name;
           const tel = this.tel;
           const email = this.email;
           const facebook = this.facebook;
@@ -88,13 +89,14 @@ export class editSmesStore {
           console.log(moneyMin);
           console.log(moneyMax);
           console.log(detail);
+          console.log(name);
           console.log(tel);
           console.log(email);
           console.log(facebook);
           console.log(lineid);
 
           await instance.get(
-            `/user/editSmes/edit/${smesId}/${title}/${description}/${dateStart}/${dateEnd}/${moneyMin}/${moneyMax}/${detail}/${tel}/${email}/${facebook}/${lineid}`
+            `/user/editSmes/edit/${smesId}/${title}/${description}/${dateStart}/${dateEnd}/${moneyMin}/${moneyMax}/${detail}/${name}/${tel}/${email}/${facebook}/${lineid}`
           );
           // console.log(infoObject);
           this.message2 = "แก้ไขข้อมูลสำเร็จ";
