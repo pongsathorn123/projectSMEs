@@ -18,6 +18,9 @@ export class smesdataStore {
     japan = "";
     eu27 = "";
     message = "";
+    list = [];
+    title = "";
+    count = "";
   
   async info() {
     console.log(this.year)
@@ -50,6 +53,22 @@ export class smesdataStore {
           }
     }
 
+    async show() {
+      try {
+          const response = await instance.get(`/user/smesData/show`);
+          this.list = response.data;
+          const data = response.data;
+          console.log(data);
+          console.log(cookies.get("userType"));
+          console.log(cookies.get("userId"));
+      } catch (error) {
+          console.log(error);
+      }
+  }
+  get showList() {
+        
+    return this.list;
+  }
     async add() {
       try {
         const response = await instance.get(
@@ -86,8 +105,13 @@ decorate(smesdataStore, {
     japan: observable,
     eu27: observable,
     message: observable,
+    list: observable,
+    title: observable,
+    count: observable,
     info: action,
     add: action,
+    show: action,
+    showList: computed,
 });
 
 export default smesdataStore;

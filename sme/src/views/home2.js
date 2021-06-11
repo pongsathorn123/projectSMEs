@@ -29,6 +29,7 @@ class home2  extends Component {
 
     componentDidMount(){
         this.props.smesdataStore.info();
+        this.props.smesdataStore.show();
     }
     selectedYear(e) {
         this.props.smesdataStore.year = e.target.value;
@@ -100,14 +101,15 @@ class home2  extends Component {
                         </Col>
                         <Col>
                             <Card className="position-fixed" style={{width:400, marginTop:50}}>
-                                <Card.Header as="h4" className="text-center">ตารางการส่งออก</Card.Header>
+                                <Card.Header as="h5" className="text-center">ตารางการส่งออก</Card.Header>
                                 <CardBody>
-                                    <Form.Control as="select"  placeholder="2021" onChange={this.selectedYear.bind(this)}>
+                                    <Row>
+                                    <Form.Control as="select"  placeholder="2021" style={{width:100}} onChange={this.selectedYear.bind(this)}>
                                         <option value="2021" disabled selected>2021</option>
                                         <option value="2020">2020</option>
                                         <option value="2021">2021</option>
                                     </Form.Control>
-                                    <Form.Control as="select"  placeholder="เลือกเดือน" style = {{marginTop:20}} onChange={this.selectedMonth.bind(this)}>
+                                    <Form.Control as="select"  placeholder="เลือกเดือน" style={{width:200}} onChange={this.selectedMonth.bind(this)}>
                                         <option value="Feb" disabled selected>เดือนกุมภาพันธ์</option>
                                         <option value="Jan">เดือนมกราคม</option>
                                         <option value="Feb">เดือนกุมภาพันธ์</option>
@@ -122,19 +124,21 @@ class home2  extends Component {
                                         <option value="Nov">เดือนพฤศจิกายน</option>
                                         <option value="Dec">เดือนธันวาคม</option>
                                     </Form.Control>
-                                    <center><ButtonToggle color="primary" size="sm" style = {{marginTop:20}} onClick={this.btnClick.bind(this)} >
+                                    <center><ButtonToggle color="primary" size="md"  onClick={this.btnClick.bind(this)} >
                                         ตกลง
                                     </ButtonToggle></center>
+                                    </Row>
+                                    
                                 </CardBody>
                             {/* </Card>
                             <Card className="position-fixed" style={{width:400, marginTop:50}}> */}
-                                <Card.Header as="h4">สินค้าส่งออกสำคัญ</Card.Header>
+                                <Card.Header as="h5">สินค้าส่งออกสำคัญ</Card.Header>
                                 <CardBody >
                                     <h7>ลำดับ 1. {this.props.smesdataStore.no1}</h7><br/>
                                     <h7>ลำดับ 2. {this.props.smesdataStore.no2}</h7><br/>
                                     <h7>ลำดับ 3. {this.props.smesdataStore.no3}</h7><br/>
                                 
-                                <Table striped   size="sm"style={{marginTop:20}} ><center>
+                                <Table striped   size="sm"style={{marginTop:10}} ><center>
                                     <thead >
                                         <tr>
                                         <th>กลุ่มประเทศ</th>
@@ -166,16 +170,42 @@ class home2  extends Component {
                                     </center>
                                     </Table>
                                 </CardBody>
-                                <div style={{padding:10}}>
-                                    <Label >API สำหรับดูข้อมูลการส่งออกย้อนหลัง</Label>
-                                    <Label >{this.state.value}</Label>
+                                <CardBody>
+                                    <div >
+                                        <Label >API สำหรับดูข้อมูลการส่งออกย้อนหลัง</Label>
+                                        <Label >{this.state.value}</Label>
 
-                                    <CopyToClipboard text={this.state.value}
-                                    onCopy={() => this.setState({copied: true})}>
-                                    <Button size="sm" variant="outline-success">COPY FOR API </Button>
-                                    </CopyToClipboard>
-                                    {this.state.copied ? <span style={{color: 'red'}}>Copied.</span> : null}
-                                </div>
+                                        <CopyToClipboard text={this.state.value}
+                                        onCopy={() => this.setState({copied: true})}>
+                                        <Button size="sm" variant="outline-success">COPY FOR API </Button>
+                                        </CopyToClipboard>
+                                        {this.state.copied ? <span style={{color: 'red'}}>Copied.</span> : null}
+                                    </div>
+                                </CardBody>
+                                <Card.Header as="h5">ธุรกิจที่น่าสนใจ 3 อันดับ</Card.Header>
+                                <CardBody >
+                                
+                                    <Table striped bordered hover size="sm"  responsive="sm">
+                                        <thead>
+                                        <tr>
+                                            <th><center>ชื่อธุรกิจ</center></th>
+                                            <th><center>จำนวนนักลงทุน (คน)</center></th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        { 
+                                            this.props.smesdataStore.showList.map((element, index) => {
+                                            return (
+                                                <tr key={index} >
+                                                    <td><center>{element.title}</center></td>
+                                                    <td><center>{element.count}</center></td>
+                                                </tr>
+                                            );
+                                            })
+                                        }
+                                        </tbody>
+                                    </Table>
+                                </CardBody>
                             </Card>
                         </Col>
                     </Row>

@@ -40,7 +40,7 @@ class invesChart extends Component {
         <div>
           <Container>
             <Card>
-              <ResponsiveContainer width={"99%"} height={170}>
+              <ResponsiveContainer width={"99%"} height={250}>
                 <BarChart 
                     style={{fontSize:"0.5em"}}
                     width={20}

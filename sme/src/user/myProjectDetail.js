@@ -68,7 +68,7 @@ return(
                           <Row>
                             <Col xs="12" md="12" sm="12" style={{padding:20}}>
                               <Card.Text style={{fontWeight: "bold"}} >จำนวนเงินในการลงทุน</Card.Text>
-                              <Card.Text>{this.props.allProjectStore.moneyMin} - {this.props.allProjectStore.moneyMax}</Card.Text>
+                              <Card.Text>{this.props.allProjectStore.moneyMin} - {this.props.allProjectStore.moneyMax} บาท</Card.Text>
                             </Col>
                           </Row>
                         </Card.Body>

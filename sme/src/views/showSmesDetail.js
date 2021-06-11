@@ -39,10 +39,9 @@ return(
             {(cookies.get('userType') == "admin") ? <Nav_Admin /> : ''}
             {(cookies.get('userType') == undefined) ? <Nav_notlogin /> : ''}
               <div>
-                <Container style ={{margin:"auto", width:1200, marginTop:150}}>
-                  <Row>
-                    <Col xs="12" md="8" sm="12">
-                      <Card>
+                  <Row style ={{margin:"auto", width:1500, marginTop:150}}>
+                    <Col xs="12" md="8" sm="12" >
+                      <Card >
                         <Card.Body>
                           <Row>
                             <Col xs="12" md="2" sm="12" className="icon-size">
@@ -65,21 +64,21 @@ return(
                           </Row>
                           <Row>
                             <Col xs="12" md="12" sm="12" style={{padding:20}}>
-                              <Card.Text style={{fontWeight: "bold"}} >ระยะเวลา</Card.Text>
+                              <Card.Text style={{fontWeight: "bold"}} >ระยะเวลา (ปป/ดด/วว)</Card.Text>
                               <Card.Text>{this.props.allProjectStore.dateStart} ถึง {this.props.allProjectStore.dateEnd}</Card.Text>
                             </Col>
                           </Row>
                           <Row>
                             <Col xs="12" md="12" sm="12" style={{padding:20}}>
                               <Card.Text style={{fontWeight: "bold"}} >จำนวนเงินในการลงทุน</Card.Text>
-                              <Card.Text>{this.props.allProjectStore.moneyMin} - {this.props.allProjectStore.moneyMax}</Card.Text>
+                              <Card.Text>{this.props.allProjectStore.moneyMin} - {this.props.allProjectStore.moneyMax} บาท</Card.Text>
                             </Col>
                           </Row>
                         </Card.Body>
                       </Card>
                     </Col>
                     <Col xs="12" md="4" sm="12">
-                      <Card>
+                      <Card >
                         <Card.Body>
                           <Row>
                             <Col xs="12" md="12" sm="12" style={{marginLeft:10, marginBottom:2}}>
@@ -101,7 +100,6 @@ return(
                     {(cookies.get('userType') == "inves") ? <button type="button" class="btn btn-danger btn-sm" onClick={this.reportClick.bind(this)}>แจ้งปัญหา</button> : ''}
                     <button type="button" class="btn btn-success btn-sm" style={{margin:25}} onClick={this.returnClick.bind(this)}>กลับหน้าหลัก</button>
                   </center>
-                </Container>
               </div>
         </div>
       );
