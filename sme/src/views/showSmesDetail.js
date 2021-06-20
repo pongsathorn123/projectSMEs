@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Nav_owner from '../components/Nav_owner';
 import InvesChart from '../views/invesChart';
+import InvesmentChart from '../views/invesmentChart';
 import Nav_inves from '../components/Nav_inves';
 import Nav_Admin from '../components/Nav_Admin';
 import Nav_notlogin from '../components/Nav_notlogin';
@@ -64,14 +65,14 @@ return(
                           </Row>
                           <Row>
                             <Col xs="12" md="12" sm="12" style={{padding:20}}>
-                              <Card.Text style={{fontWeight: "bold"}} >ระยะเวลา (ปป/ดด/วว)</Card.Text>
+                              <Card.Text style={{fontWeight: "bold"}} >ระยะเวลา (ระยะเวลาเริ่มต้นถึงสิ้นสุดการรับสมัคร)</Card.Text>
                               <Card.Text>{this.props.allProjectStore.dateStart} ถึง {this.props.allProjectStore.dateEnd}</Card.Text>
                             </Col>
                           </Row>
                           <Row>
                             <Col xs="12" md="12" sm="12" style={{padding:20}}>
                               <Card.Text style={{fontWeight: "bold"}} >จำนวนเงินในการลงทุน</Card.Text>
-                              <Card.Text>{this.props.allProjectStore.moneyMin} - {this.props.allProjectStore.moneyMax} บาท</Card.Text>
+                              <Card.Text>ตั้งแต่ {this.props.allProjectStore.moneyMin} บาท จนถึง {this.props.allProjectStore.moneyMax} บาท</Card.Text>
                             </Col>
                           </Row>
                         </Card.Body>
@@ -93,6 +94,7 @@ return(
                       </Card>
                       <Card>
                         <InvesChart />
+                        <InvesmentChart />
                       </Card>
                     </Col>
                   </Row>

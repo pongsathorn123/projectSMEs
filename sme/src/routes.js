@@ -1,5 +1,9 @@
 import UserLogin from './views/userLogin';
 import AllProject from './views/allProject';
+import AllProject1 from './views/allProject1';
+import AllProject2 from './views/allProject2';
+import AllProject3 from './views/allProject3';
+import AllProject4 from './views/allProject4';
 import UserRegister from './views/userRegister';
 import CreateProject from './views/createProject';
 import AuthorizeSme from './views/authorizeSme';
@@ -17,6 +21,7 @@ import AuthorizeReportAdmin from './admin/authorizeReport';
 import AuthorizeReport from './views/authorizeReport';
 import AuthorizeUser from './views/authorizeUser';
 import InvesChart from './views/invesChart';
+import InvesmentChart from './views/invesmentChart';
 import EditAccount from './user/editAccount';
 import EditSmes from './user/editSmes';
 import AddInves from './user/addInves';
@@ -43,6 +48,12 @@ const routesApp = [
     name: "InvesChart",
     exact: true,
     component: InvesChart
+  },
+  {
+    path: "/invesmentchart",
+    name: "InvesmentChart",
+    exact: true,
+    component: InvesmentChart
   },
   {
     path: "/authorizeInvesAdmin",
@@ -157,6 +168,29 @@ const routesApp = [
     name: "allProject",
     exact: true,
     component: AllProject
+  },
+  {
+    path: "/allProject1",
+    name: "allProject1",
+    exact: true,
+    component: AllProject1
+  },
+  {
+    path: "/allProject2",
+    name: "allProject2",
+    exact: true,
+    component: AllProject2
+  },
+  {
+    path: "/allProject3",
+    name: "allProject3",
+    exact: true,
+    component: AllProject3
+  },{
+    path: "/allProject4",
+    name: "allProject4",
+    exact: true,
+    component: AllProject4
   },
   {
     path: "/userRegister",

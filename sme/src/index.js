@@ -21,6 +21,7 @@ ReactDOM.render(
     myProjectStore={rootStore.myProjectStore}
     addinvesStore={rootStore.addinvesStore}
     inveschartStore={rootStore.inveschartStore}
+    invesmentchartStore={rootStore.invesmentchartStore}
   >
     <App />
   </Provider>,

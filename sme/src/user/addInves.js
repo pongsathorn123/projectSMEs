@@ -105,6 +105,10 @@ class addInves extends Component {
                                             <Form.Label >ใส่จำนวนนักลงทุน</Form.Label>
                                             <Input type="number" min="0" style={{width:250}} onChange={this.invescountChange.bind(this)}></Input>
                                         </Form.Group>
+                                        <Form.Group>
+                                            <Form.Label >ใส่จำนวนเงินลงทุน</Form.Label>
+                                            <Input type="number" min="0" style={{width:250}} ></Input>
+                                        </Form.Group>
                                     </Form>
                                 </Col>
                             </Row>

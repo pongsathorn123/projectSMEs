@@ -9,6 +9,7 @@ import editSmesStore from './editSmesStore';
 import myProjectStore from './myProjectStore';
 import addinvesStore from './addinvesStore';
 import inveschartStore from './inveschartStore';
+import invesmentchartStore from './invesmentchartStore';
 import reportStore from './reportStore';
 
 export class rootStore {
@@ -25,6 +26,7 @@ export class rootStore {
       this.editSmesStore = new editSmesStore(this);
       this.addinvesStore = new addinvesStore(this);
       this.inveschartStore = new inveschartStore(this);
+      this.invesmentchartStore = new invesmentchartStore(this);
       
   }
 }

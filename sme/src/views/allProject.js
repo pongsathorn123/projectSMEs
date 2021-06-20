@@ -18,17 +18,20 @@ class AllProject extends Component{
     }
   
 
-  componentDidMount(){
-    this.props.allProjectStore.show();
-
+  
+  allProject(){
+    window.location.href = "/allProject1";
   }
-  selectedSmestype(e) {
-    this.props.allProjectStore.smesType = e.target.value;
-
-    console.log(e.target.value)
-    debugger
-    this.props.allProjectStore.show2();
+  commercial(){
+    window.location.href = "/allProject2";
   }
+  service(){
+    window.location.href = "/allProject3";
+  }
+  manufacturing(){
+    window.location.href = "/allProject4";
+  }
+  
  
   showData = (event) => {
 
@@ -36,6 +39,7 @@ class AllProject extends Component{
 
   async buttonClick(smesId) {
     cookies.set("smesId",smesId, { path: "/", maxAge: 86400 })
+    console.log(cookies.get('smesId'))
     window.location.href = "/showSmesDetail";
     
   }
@@ -48,54 +52,42 @@ return(
             {(cookies.get('userType') == "inves") ? <Nav_inves /> : ''}
             {(cookies.get('userType') == "admin") ? <Nav_Admin /> : ''}
             {(cookies.get('userType') == undefined) ? <Nav_notlogin /> : ''}  
-            
-              <div>
-                <Container style ={{margin:"auto", width:1200, marginTop:80 }}>
-              <Row > 
-                <Col xs="3" md="3" sm="3" style ={{padding: 10}}>
-                  <Card>
-                    <Form.Control as="select"  placeholder="เลือกประเภทธุรกิจ" onChange={this.selectedSmestype.bind(this)} >
-                        <option value="1" disabled selected>เลือกประเภทธุรกิจ</option>
-                        <option value="ธุรกิจทั้งหมด">ธุรกิจทั้งหมด</option>
-                        <option value="ธุรกิจด้านการผลิต">ธุรกิจด้านการผลิต</option>
-                        <option value="ธุรกิจด้านการค้า">ธุรกิจการค้า</option>
-                        <option value="ธุรกิจด้านการบริการ">ธุรกิจด้านการบริการ</option>
-                    </Form.Control>
+            <div>
+              <Row style={{margin:"auto",padding:50,marginTop:70, width:1200}}>
+                <Col style={{padding:20}}>
+                <Card  className="text-center" onClick={this.allProject.bind(this)}>
+                    <Card.Body>
+                      <Card.Text>
+                        ธุรกิจทั้งหมด
+                      </Card.Text>
+                    </Card.Body>
+                  </Card>
+                  <Card className="text-center" style={{marginTop:20}} onClick={this.manufacturing.bind(this)}>
+                    <Card.Body>
+                        <Card.Text>
+                          ธุรกิจด้านการผลิต
+                        </Card.Text>
+                    </Card.Body>
                   </Card>
                 </Col>
-                  <Col xs="9" md={{ span: 6, offset: 1 }} sm="9">
-                  <Row>
-                    {
-                    this.props.allProjectStore.showList.map((element, index) => {
-                        return (
-                          <CardDeck style ={{marginLeft:10, padding: 10, width:800}}>          
-                            <Card >
-                                  <Card.Body>
-                                    <Row>
-                                      <Col xs="6" md="4" sm="6" className="icon-size" >
-                                        <IoIosPeople style ={{marginLeft:25}}/>
-                                      </Col>
-                                      <Col xs="6" md="5" sm="6">
-                                        <Card.Text style={{fontWeight: "bold"}}>{element.title}</Card.Text>
-                                        <Card.Text>{element.smesType}</Card.Text>
-                                      </Col>
-                                      <Col xs="12" md="3" sm="12">
-                                        <button type="button" class="btn btn-success btn-sm" style={{marginTop:25}}
-                                                onClick={() => { this.buttonClick(element.smesId)}}>ดูเพิ่มเติม</button>
-                                      </Col>
-                                    </Row>
-                                  </Card.Body>
-                                
-                            </Card>
-                          </CardDeck> 
-                        );
-                      })
-                    }
-                    </Row>
-                    </Col>
-                  </Row>
-                  </Container>
-              </div>
+                <Col style={{padding:20}} >
+                <Card className="text-center" onClick={this.commercial.bind(this)}>
+                    <Card.Body>
+                      <Card.Text>
+                        ธุรกิจด้านการค้า
+                      </Card.Text>
+                    </Card.Body>
+                  </Card>
+                  <Card style={{marginTop:20}} className="text-center" onClick={this.service.bind(this)}>
+                    <Card.Body>
+                        <Card.Text>
+                          ธุรกิจด้านการบริการ
+                        </Card.Text>
+                    </Card.Body>
+                  </Card>
+                </Col>
+              </Row>
+            </div>
         </div>
       );
     }

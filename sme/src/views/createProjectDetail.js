@@ -63,7 +63,7 @@ class CreateProjectDetail extends Component {
           <Container>
             <Card style={{ marginTop: 80 }}>
               <CardHeader className="text-center">
-                <h3>รายละเอียดโปรเจค</h3>
+                <h3>รายละเอียดธุรกิจ</h3>
               </CardHeader>
               <CardBody>
                 <Form style={{ margin: 10, marginLeft: 50, marginRight: 50 }}>

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Form, Button, Container} from 'react-bootstrap'
+import {Form, Button, Container, Row, Col} from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../App.css';
 import { observer, inject } from "mobx-react";
@@ -58,25 +58,37 @@ class editAccount extends Component {
             {(cookies.get('userType') == "admin") ? <Nav_Admin /> : ''}
         <center>
         <h1 style={{marginTop:80}}>แก้ไขข้อมูล</h1>
-        <Container style={{marginTop:20, width:300}}>
+        <Container style={{marginTop:20, width:600}}>
         <Form>
-            <Form.Group controlId="exampleForm.ControlInput1" >
-                <Form.Label>ชื่อผู้ใช้</Form.Label>
-                <Form.Control type="text" placeholder="ชื่อผู้ใช้" readOnly 
-                  value={this.props.loginStore.username}/>
+          <Row>
+            <Col>
+              <Form.Group controlId="exampleForm.ControlInput1" >
+                  <Form.Label>ชื่อผู้ใช้</Form.Label>
+                  <Form.Control type="text" placeholder="ชื่อผู้ใช้" readOnly 
+                    value={this.props.loginStore.username}/>
+              </Form.Group>
+              <Form.Group controlId="exampleForm.ControlInput1">
+                  <Form.Label>ชื่อ - นามสกุล</Form.Label>
+                  <Form.Control type="text" placeholder="ชื่อ" 
+                    onChange={this.nameChange.bind(this)} 
+                    value={this.props.loginStore.name}/>
+              </Form.Group>
+              <Form.Group controlId="exampleForm.ControlInput1">
+                <Form.Label>เบอร์โทรศัพท์</Form.Label>
+                <Form.Control type="text" placeholder="เบอร์" maxLength="10"
+                  onChange={this.telChange.bind(this)} 
+                  value={this.props.loginStore.tel}/>
             </Form.Group>
+            </Col>
+            
+            
+            <Col>
             <Form.Group controlId="exampleForm.ControlInput1">
-                <Form.Label>รหัสผ่าน</Form.Label>
-                <Form.Control type="password" placeholder="รหัสผ่าน" 
-                  onChange={this.passwordChange.bind(this)} 
-                  value={this.props.loginStore.password}/>
-            </Form.Group>
-            <Form.Group controlId="exampleForm.ControlInput1">
-                <Form.Label>ชื่อ</Form.Label>
-                <Form.Control type="text" placeholder="ชื่อ" 
-                  onChange={this.nameChange.bind(this)} 
-                  value={this.props.loginStore.name}/>
-            </Form.Group>
+                  <Form.Label>รหัสผ่าน</Form.Label>
+                  <Form.Control type="password" placeholder="รหัสผ่าน" 
+                    onChange={this.passwordChange.bind(this)} 
+                    value={this.props.loginStore.password}/>
+              </Form.Group>
             <Form.Group controlId="exampleForm.ControlInput1">
                 <Form.Label>E-mail</Form.Label>
                 <Form.Control type="text" placeholder="เลขบัตรประชาชน" 
@@ -84,25 +96,17 @@ class editAccount extends Component {
                   value={this.props.loginStore.email}/>
             </Form.Group>
             <Form.Group controlId="exampleForm.ControlInput1">
-                <Form.Label>เบอร์</Form.Label>
-                <Form.Control type="text" placeholder="เบอร์" maxLength="10"
-                  onChange={this.telChange.bind(this)} 
-                  value={this.props.loginStore.tel}/>
-            </Form.Group>
-            <Form.Group controlId="exampleForm.ControlInput1">
                 <Form.Label>ที่อยู่</Form.Label>
-                <Form.Control type="text" placeholder="เบอร์" 
+                <Form.Control as="textarea" placeholder="ที่อยู่" 
                   onChange={this.addressChange.bind(this)} 
                   value={this.props.loginStore.address}/>
             </Form.Group>
-            <Form.Group controlId="exampleForm.ControlInput1">
-                <Form.Label>ประเภทผู้ใช้</Form.Label>
-                <Form.Control type="text" placeholder="ชื่อผู้ใช้" readOnly
-                  value={this.props.loginStore.userType}/>
-            </Form.Group>
-            <Form.Label style={{ color: "green" }}>{this.props.loginStore.message2}</Form.Label>  <br/>
+            </Col>
+          </Row>
+          <Form.Label style={{ color: "green" }}>{this.props.loginStore.message2}</Form.Label>  <br/>
             <Button variant="primary" type="button"
                onClick={this.buttonClick.bind(this)}>ยืนยัน</Button>
+            
         </Form>
         </Container>
         </center>

@@ -25,10 +25,11 @@ export class allProjectStore {
     description = "";
     authorize = "";
     smesType = "";
+    category = "";
 
-
-    async show() {
+    async showall() {
         try {
+            
             const response = await instance.get(`/user/allproject/show`);
             this.list = response.data;
             const data = response.data;
@@ -39,11 +40,86 @@ export class allProjectStore {
             console.log(error);
         }
     }
-
-    async show2() {
-        debugger
+    async show3() {
         try {
-            const response = await instance.get(`/user/allproject/show2/${this.smesType}`);
+            
+            const response = await instance.get(`/user/allproject/show3/${this.category}`);
+            this.list = response.data;
+            const data = response.data;
+            console.log(data);
+            console.log(cookies.get("userType"));
+            console.log(cookies.get("userId"));
+        } catch (error) {
+            console.log(error);
+        }
+    }
+    async show4() {
+        try {
+            
+            const response = await instance.get(`/user/allproject/show4/${this.category}`);
+            this.list = response.data;
+            const data = response.data;
+            console.log(data);
+            console.log(cookies.get("userType"));
+            console.log(cookies.get("userId"));
+        } catch (error) {
+            console.log(error);
+        }
+    }
+    async show5() {
+        try {
+            
+            const response = await instance.get(`/user/allproject/show5/${this.category}`);
+            this.list = response.data;
+            const data = response.data;
+            console.log(data);
+            console.log(cookies.get("userType"));
+            console.log(cookies.get("userId"));
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    async show6() {
+        try {
+            
+            const response = await instance.get(`/user/allproject/show6/${this.category}`);
+            this.list = response.data;
+            const data = response.data;
+            console.log(data);
+            console.log(cookies.get("userType"));
+            console.log(cookies.get("userId"));
+        } catch (error) {
+            console.log(error);
+        }
+    }
+    async showcommercial() {
+        try {
+            const response = await instance.get(`/user/allproject/show2/ธุรกิจด้านการค้า`);
+            this.list = response.data;
+            const data2 = response.data;
+            console.log(data2);
+            console.log(cookies.get("userType"));
+            console.log(cookies.get("userId"));
+        } catch (error) {
+            console.log(error);
+        }
+    }
+    async showservice() {
+        try {
+            const response = await instance.get(`/user/allproject/show2/ธุรกิจด้านการบริการ`);
+            this.list = response.data;
+            const data2 = response.data;
+            console.log(data2);
+            console.log(cookies.get("userType"));
+            console.log(cookies.get("userId"));
+        } catch (error) {
+            console.log(error);
+        }
+    }
+    async showmanufacturing() {
+        try {
+            const response = await instance.get(`/user/allproject/show2/ธุรกิจด้านการผลิต`);
             this.list = response.data;
             const data2 = response.data;
             console.log(data2);
@@ -54,8 +130,6 @@ export class allProjectStore {
         }
     }
 
-    
-
 
     get showList() {
         
@@ -65,9 +139,11 @@ export class allProjectStore {
 
     async showdetail() {
         try {
+            console.log("rrr"+cookies.get("smesId"));
             const response = await instance.get(`/user/allproject/show/${cookies.get("smesId")}`);
             this.data = response.data;
             console.log(this.detail);
+            
             cookies.set("title", this.data.title, { path: "/", maxAge: 86400 });
             this.userId = this.data.userId
             this.name = this.data.name
@@ -105,6 +181,7 @@ decorate(allProjectStore, {
     email: observable,
     title: observable,
     tel: observable,
+    category: observable,
     userType: observable,
     dateStart: observable,
     dateEnd: observable,
@@ -118,8 +195,11 @@ decorate(allProjectStore, {
     data: observable,
     list: observable,
     smesType: observable,
-    show: action,
-    show2: action,
+    showall: action,
+    show3: action,
+    showcommercial: action,
+    showservice: action,
+    showmanufacturing: action,
     showdetail: action,
     showList: computed,
     showdetailList: computed

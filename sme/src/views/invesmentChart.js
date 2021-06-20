@@ -4,17 +4,17 @@ import axios from 'axios';
 import { observer, inject } from "mobx-react";
 import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, LabelList} from 'recharts';
 
-class invesChart extends Component {
+class invesmentChart extends Component {
     constructor(){
         super();
         }
         
     componentDidMount(){
-        this.props.inveschartStore.info();
+        this.props.invesmentchartStore.info();
       }
     selectedYear(e) {
-      this.props.inveschartStore.year = e.target.value;
-      this.props.inveschartStore.info();
+      this.props.invesmentchartStore.year = e.target.value;
+      this.props.invesmentchartStore.info();
       console.log(e);
     }
     
@@ -27,10 +27,10 @@ class invesChart extends Component {
             <Card>
               <Row>
                 <Col>
-                    <Form.Control as="select"  placeholder="จำนวนคนลงทุนในแต่ละปี" onChange={this.selectedYear.bind(this)}>
-                                        <option value="2021" disabled selected>จำนวนคนลงทุนในปี 2021</option>
-                                        <option value="2020">จำนวนคนลงทุนในปี 2020</option>
-                                        <option value="2021">จำนวนคนลงทุนในปี 2021</option>
+                    <Form.Control as="select"  placeholder="จำนวนเงินลงทุนในแต่ละปี" onChange={this.selectedYear.bind(this)}>
+                                        <option value="2021" disabled selected>จำนวนเงินลงทุนในปี 2021</option>
+                                        <option value="2020">จำนวนเงินลงทุนในปี 2020</option>
+                                        <option value="2021">จำนวนเงินลงทุนในปี 2021</option>
                                     </Form.Control>
                 </Col>
               </Row>
@@ -45,15 +45,15 @@ class invesChart extends Component {
                     style={{fontSize:"0.5em"}}
                     width={20}
                     height={380}
-                    data = {this.props.inveschartStore.dataChart}
+                    data = {this.props.invesmentchartStore.dataChart}
                     margin={{top: 15, right:1, bottom: 5,}}>
                   <CartesianGrid strokeDasharray="3 3" />
                   <XAxis dataKey="เดือน" />
                   <YAxis />
                   <Tooltip />
                   <Legend />
-                  <Bar dataKey="จำนวนคน" fill="#8884d8" >
-                    <LabelList dataKey="จำนวนคน" position="top" />
+                  <Bar dataKey="จำนวนเงิน" fill="#00FF66" >
+                    <LabelList dataKey="จำนวนเงิน" position="top" />
                   </Bar>
                 </BarChart>
               </ResponsiveContainer>
@@ -65,4 +65,4 @@ class invesChart extends Component {
   }
 }
 
-export default inject('inveschartStore')(observer(invesChart))
+export default inject('invesmentchartStore')(observer(invesmentChart))
