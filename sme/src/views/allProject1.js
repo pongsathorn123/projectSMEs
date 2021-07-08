@@ -52,22 +52,22 @@ return(
               <div>
                 <Row style ={{marginTop:100}} > 
                   <Col xs="3" md="3" sm="3" >
-                      <Card style ={{width:300, marginLeft:300}}>
+                      <Card style ={{width:300, marginLeft:200}}>
                         <Form.Control as="select"  placeholder="หมวดหมู่ธุรกิจ" onChange={this.selectedcategory.bind(this)} >
                             <option value="1" disabled selected>หมวดหมู่ธุรกิจ</option>
                             <option value="ธุรกิจทั้งหมด">ธุรกิจทั้งหมด</option>
-                            <option value="ยานพาหนะ 2 ล้อ">เกี่ยวกับยานพาหนะ 2 ล้อ</option>
-                            <option value="ยานพาหนะ 4 ล้อ">เกี่ยวกับยานพาหนะ 4 ล้อขึ้นไป</option>
-                            <option value="อาหาร">เกี่ยวกับอาหาร</option>
-                            <option value="เครื่องดื่ม">เกี่ยวกับเครื่องดื่ม</option>
-                            <option value="ตู้จำหน่ายอัตโนมัติ">เกี่ยวกับตู้จำหน่ายอัตโนมัติ</option>
-                            <option value="สวน">เกี่ยวกับสวน</option>
+                            <option value="ยานพาหนะ 2 ล้อ">ยานพาหนะ 2 ล้อ</option>
+                            <option value="ยานพาหนะ 4 ล้อ">ยานพาหนะ 4 ล้อขึ้นไป</option>
+                            <option value="อาหาร">อาหาร</option>
+                            <option value="เครื่องดื่ม">เครื่องดื่ม</option>
+                            <option value="ตู้จำหน่ายอัตโนมัติ">ตู้จำหน่ายอัตโนมัติ</option>
+                            <option value="สวน">สวน</option>
                         </Form.Control>
                       </Card>
                       </Col>
                     <Col>
                     <Container >
-                    <Table striped bordered hover size="sm"  responsive="sm" style ={{marginRight:500}}>
+                    <Table striped bordered hover size="sm"  responsive="sm" style ={{marginRight:400}}>
                 
                       <thead style={{margin:10}}>
                         <tr>

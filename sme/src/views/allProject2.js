@@ -52,7 +52,7 @@ return(
               <div>
                 <Row style ={{marginTop:100}} > 
                   <Col xs="3" md="3" sm="3" >
-                      <Card style ={{width:300, marginLeft:300}}>
+                      <Card style ={{width:300, marginLeft:200}}>
                         <Form.Control as="select"  placeholder="หมวดหมู่ธุรกิจ" onChange={this.selectedcategory.bind(this)} >
                             <option value="1" disabled selected>หมวดหมู่ธุรกิจ</option>
                             <option value="ธุรกิจทั้งหมด">ธุรกิจทั้งหมด</option>
@@ -67,7 +67,7 @@ return(
                       </Col>
                     <Col>
                     <Container >
-                    <Table striped bordered hover size="sm"  responsive="sm" style ={{marginRight:100}}>
+                    <Table striped bordered hover size="sm"  responsive="sm" style ={{marginRight:200}}>
                 
                     <thead style={{margin:10}}>
                         <tr>
